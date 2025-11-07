@@ -69,7 +69,7 @@
     main {
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* permet d'aligner à gauche la présentation */
+      align-items: flex-start;
       padding: 40px 20px;
     }
 
@@ -90,7 +90,7 @@
       transform: scale(1.05);
     }
 
-    /* Bloc présentation avec photo à gauche légèrement décalée */
+    /* Bloc présentation avec photo à gauche */
     .presentation-container {
       display: flex;
       flex-direction: row;
@@ -100,7 +100,7 @@
       width: 100%;
       margin-top: 40px;
       flex-wrap: nowrap;
-      margin-left: 20px; /* marge à gauche pour éviter que la photo touche le bord */
+      margin-left: 20px;
     }
 
     .photo-container {
@@ -110,7 +110,7 @@
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       flex-shrink: 0;
-      margin-left: -20px; /* décale légèrement la photo vers la gauche */
+      margin-left: -20px;
     }
 
     .photo-container img {
@@ -136,11 +136,12 @@
       text-align: left;
     }
 
-    /* Compétences */
+    /* Bloc compétences légèrement décalé à gauche */
     .competences {
       max-width: 600px;
       width: 100%;
       margin-top: 40px;
+      margin-left: -20px; /* décale légèrement le bloc vers la gauche */
     }
 
     .competences .intro {
@@ -190,6 +191,9 @@
         height: auto;
         margin-left: 0;
       }
+      .competences {
+        margin-left: 0;
+      }
     }
 
   </style>
@@ -204,7 +208,7 @@
   </header>
 
   <main>
-    <!-- Partie 1 : Présentation avec photo légèrement décalée vers la gauche -->
+    <!-- Partie 1 : Présentation avec photo -->
     <div class="presentation-container">
       <div class="photo-container">
         <img src="photo.jpg" alt="Photo de Vivian">
@@ -219,7 +223,7 @@
       </section>
     </div>
 
-    <!-- Partie 2 : Compétences -->
+    <!-- Partie 2 : Compétences légèrement décalée à gauche -->
     <section class="competences">
       <div class="intro">
         <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
