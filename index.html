@@ -14,7 +14,6 @@
       overflow-x: hidden;
     }
 
-    /* Header fixe en haut */
     header {
       position: sticky;
       top: 0;
@@ -26,7 +25,6 @@
       padding: 20px 0;
     }
 
-    /* Conteneur du logo avec cercle parfait et animation simple */
     .logo-container {
       background-color: #fff;
       border-radius: 50%;
@@ -92,14 +90,36 @@
       transform: scale(1.05);
     }
 
-    /* Partie Présentation */
+    /* Présentation */
     .presentation {
       max-width: 600px;
       width: 100%;
       margin-top: 40px;
     }
 
-    .presentation .intro,
+    .presentation .intro {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .presentation .intro p {
+      margin: 5px 0;
+      text-align: left;
+    }
+
+    .presentation .intro p:first-child {
+      margin-top: 20px;
+    }
+
+    /* Compétences */
+    .competences {
+      max-width: 600px;
+      width: 100%;
+      margin-top: 40px;
+    }
+
     .competences .intro {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px 30px;
@@ -107,22 +127,27 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
 
-    .presentation .intro p,
     .competences .intro p {
       margin: 5px 0;
       text-align: left;
     }
 
-    .presentation .intro p:first-child,
-    .competences .intro p:first-child {
-      margin-top: 20px;
+    .competences .skills {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    /* Partie Compétences */
-    .competences {
-      max-width: 600px;
-      width: 100%;
-      margin-top: 40px;
+    .competences .skills div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .competences .skills span.icon {
+      font-size: 1.5rem;
+      color: #00eaff;
     }
 
   </style>
@@ -152,6 +177,14 @@
       <div class="intro">
         <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
         <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
+
+        <!-- Liste visuelle des compétences -->
+        <div class="skills">
+          <div><span class="icon">🎬</span> Montage (DaVinci Resolve)</div>
+          <div><span class="icon">✨</span> Textes animés & effets visuels</div>
+          <div><span class="icon">🎵</span> Sound design</div>
+          <div><span class="icon">🎨</span> Colorimétrie</div>
+        </div>
       </div>
     </section>
 
