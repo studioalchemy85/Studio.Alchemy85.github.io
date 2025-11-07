@@ -11,6 +11,7 @@
       color: #fff;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     /* Header fixe en haut */
@@ -69,7 +70,6 @@
       text-shadow: 0 0 10px #00eaff;
     }
 
-    /* Contenu principal */
     main {
       display: flex;
       flex-direction: column;
@@ -77,9 +77,27 @@
       padding: 40px 20px;
     }
 
-    p {
-      font-size: 1.2rem;
-      margin: 10px 0;
+    /* Partie Présentation */
+    .presentation {
+      max-width: 600px;
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    .presentation .intro {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .presentation .intro p {
+      margin: 5px 0;
+      text-align: left;
+    }
+
+    .presentation .intro p:first-child {
+      margin-top: 20px;
     }
 
     a.button {
@@ -99,24 +117,6 @@
       transform: scale(1.05);
     }
 
-    .intro {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      max-width: 600px;
-      width: 100%;
-    }
-
-    .intro p {
-      margin: 5px 0;
-      text-align: left;
-    }
-
-    .intro p:first-child {
-      margin-top: 20px;
-    }
-
   </style>
 </head>
 <body>
@@ -129,12 +129,15 @@
   </header>
 
   <main>
-    <div class="intro">
-      <p>Salut !</p>
-      <p>moi c'est Vivian,</p>
-      <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
-      <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque..</p>
-    </div>
+    <!-- Partie 1 : Présentation -->
+    <section class="presentation">
+      <div class="intro">
+        <p>Salut !</p>
+        <p>moi c'est Vivian,</p>
+        <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
+        <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque..</p>
+      </div>
+    </section>
 
     <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
   </main>
