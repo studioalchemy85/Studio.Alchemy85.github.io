@@ -74,8 +74,8 @@
     }
 
     a.button {
-      display: inline-block;
-      margin-top: 20px;
+      display: block;           /* nécessaire pour centrer avec margin auto */
+      margin: 20px auto 0 auto; /* top margin 20px, horizontal auto */
       padding: 12px 25px;
       font-size: 1.1rem;
       color: #0f0f0f;
@@ -83,6 +83,8 @@
       border-radius: 8px;
       text-decoration: none;
       transition: all 0.3s ease;
+      text-align: center;
+      width: fit-content;
     }
 
     a.button:hover {
@@ -142,7 +144,7 @@
       width: 100%;
       margin-top: 40px;
       margin-left: auto; /* pousse le bloc à droite */
-      margin-right: 20px; /* marge à droite pour éviter le bord */
+      margin-right: 20px; /* marge à droite */
     }
 
     .competences .intro {
@@ -240,6 +242,7 @@
       </div>
     </section>
 
+    <!-- Bouton centré -->
     <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
   </main>
 
