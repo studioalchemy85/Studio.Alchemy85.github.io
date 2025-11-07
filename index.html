@@ -19,26 +19,29 @@
       padding: 0 20px;
     }
 
-    /* Conteneur du logo avec rond blanc et animation */
+    /* Conteneur du logo avec cercle parfait et animation */
     .logo-container {
-      background-color: #fff;      /* rond blanc */
-      border-radius: 50%;          /* forme circulaire */
-      padding: 15px;               /* espace autour du logo */
-      display: inline-block;       /* prend juste la taille du logo */
-      margin-bottom: 15px;         /* espace sous le logo */
-      transition: all 0.3s ease;   /* animation douce */
+      background-color: #fff;       /* rond blanc */
+      border-radius: 50%;           /* forme circulaire */
+      width: 150px;                 /* largeur fixe */
+      height: 150px;                /* même valeur que la largeur pour le cercle parfait */
+      display: flex;                /* centre le logo */
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
     }
 
-    /* Effet au survol */
     .logo-container:hover {
       transform: scale(1.15);                       /* grossit légèrement */
-      box-shadow: 0 0 20px #00eaff, 0 0 30px #00b7cc; /* lueur bleue autour du cercle */
+      box-shadow: 0 0 20px #00eaff, 0 0 30px #00b7cc; /* lueur bleue */
     }
 
     .logo {
-      width: 120px;                /* taille du logo */
-      height: auto;
-      display: block;              /* centré dans le cercle */
+      width: 80%;            /* taille relative au conteneur */
+      height: 80%;
+      object-fit: contain;   /* garde les proportions */
+      display: block;
     }
 
     h1 {
