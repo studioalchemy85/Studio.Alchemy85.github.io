@@ -90,14 +90,14 @@
       transform: scale(1.05);
     }
 
-    /* Présentation avec photo */
+    /* Présentation avec photo à gauche */
     .presentation-container {
       display: flex;
       flex-direction: row;
-      align-items: flex-start;
+      align-items: stretch; /* fait que la photo et le texte prennent la même hauteur */
       max-width: 800px;
       width: 100%;
-      gap: 30px;
+      gap: 20px;
       margin-top: 40px;
       flex-wrap: wrap; /* pour mobile */
     }
@@ -109,6 +109,9 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       flex: 1;
       min-width: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* centrer verticalement le texte */
     }
 
     .presentation .intro p {
@@ -125,6 +128,7 @@
       height: auto;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      object-fit: cover;
       flex-shrink: 0;
     }
 
@@ -193,8 +197,9 @@
   </header>
 
   <main>
-    <!-- Partie 1 : Présentation avec photo -->
+    <!-- Partie 1 : Présentation avec photo à gauche -->
     <div class="presentation-container">
+      <img src="photo.jpg" alt="Photo de Vivian" class="photo">
       <section class="presentation">
         <div class="intro">
           <p>Salut !</p>
@@ -203,7 +208,6 @@
           <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque..</p>
         </div>
       </section>
-      <img src="photo.jpg" alt="Photo de Vivian" class="photo">
     </div>
 
     <!-- Partie 2 : Compétences -->
@@ -226,4 +230,3 @@
 
 </body>
 </html>
-
