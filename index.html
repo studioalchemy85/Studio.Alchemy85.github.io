@@ -19,6 +19,21 @@
       padding: 0 20px;
     }
 
+    /* Conteneur du logo avec rond blanc */
+    .logo-container {
+      background-color: #fff;      /* rond blanc */
+      border-radius: 50%;          /* forme circulaire */
+      padding: 15px;               /* espace autour du logo */
+      display: inline-block;       /* prend juste la taille du logo */
+      margin-bottom: 15px;         /* espace sous le logo */
+    }
+
+    .logo {
+      width: 120px;                /* taille du logo */
+      height: auto;
+      display: block;              /* centré dans le cercle */
+    }
+
     h1 {
       color: #00eaff;
       font-size: 3rem;
@@ -50,7 +65,7 @@
 
     /* Bloc de texte en “carte” */
     .intro {
-      background-color: rgba(0, 0, 0, 0.6); /* fond semi-transparent */
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
@@ -67,9 +82,15 @@
     .intro p:first-child {
       margin-top: 20px;
     }
+
   </style>
 </head>
 <body>
+
+  <div class="logo-container">
+    <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy" class="logo">
+  </div>
+
   <h1>Bienvenue chez Studio Alchemy</h1>
 
   <div class="intro">
