@@ -50,8 +50,13 @@
 
     /* Styles spécifiques pour les paragraphes de présentation */
     .intro p {
-      margin: 5px 0;       /* réduit l'espacement vertical */
+      margin: 5px 0;       /* réduit l'espacement vertical entre les paragraphes */
       text-align: left;    /* aligne le texte à gauche */
+    }
+
+    /* Augmente l'espace avant le premier paragraphe */
+    .intro p:first-child {
+      margin-top: 20px;    /* ajuster cette valeur selon l'espace désiré */
     }
 
   </style>
@@ -69,4 +74,3 @@
   <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
 </body>
 </html>
-
