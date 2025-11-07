@@ -1,316 +1,273 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Monteur Vidéo</title>
+  <title>Studio Alchemy</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      color: #fff;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
+      background-color: #111;
+      color: white;
     }
 
     header {
       position: sticky;
       top: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      z-index: 100;
-      padding: 20px 0;
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      z-index: 1000;
     }
 
-    .logo-container {
-      background-color: #fff;
+    header img {
+      width: 100px;
+      height: 100px;
+      background-color: white;
       border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 15px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-      transform: translateX(-300px) rotate(-720deg);
-      animation: rollInBounce 1.2s forwards;
+      padding: 10px;
     }
 
-    .logo-container:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0 20px #00eaff, 0 0 30px #00b7cc;
+    header h1 {
+      margin: 10px 0 0;
+      font-size: 1.8em;
     }
 
-    .logo {
-      width: 80%;
-      height: 80%;
-      object-fit: contain;
-      display: block;
+    .section {
+      padding: 60px 80px;
     }
 
-    @keyframes rollInBounce {
-      0% { transform: translateX(-300px) rotate(-720deg); }
-      60% { transform: translateX(20px) rotate(20deg); }
-      80% { transform: translateX(-10px) rotate(-10deg); }
-      100% { transform: translateX(0) rotate(0deg); }
-    }
-
-    h1 {
-      color: #00eaff;
-      font-size: 3rem;
-      margin: 0;
-      text-shadow: 0 0 10px #00eaff;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 40px 20px;
-    }
-
-    a.button {
-      display: block;
-      margin: 20px auto 0 auto;
-      padding: 12px 25px;
-      font-size: 1.1rem;
-      color: #0f0f0f;
-      background-color: #00eaff;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
+    .section h2 {
       text-align: center;
-      width: fit-content;
+      font-size: 2em;
+      margin-bottom: 40px;
     }
 
-    a.button:hover {
-      background-color: #00b7cc;
-      transform: scale(1.05);
-    }
-
-    /* Titre de section centré */
-    .section-title {
-      width: 100%;
-      text-align: center;
-      font-size: 2rem;
-      color: #00eaff;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px #00eaff;
-    }
-
-    /* Bloc présentation */
     .presentation-container {
       display: flex;
-      flex-direction: row;
       align-items: center;
-      gap: 20px;
-      max-width: 800px;
-      width: 100%;
-      margin-top: 20px;
-      flex-wrap: nowrap;
-      margin-left: 20px;
+      justify-content: flex-start;
+      margin-bottom: 60px;
     }
 
-    .photo-container {
-      width: 150px;
-      height: 150px;
+    .presentation-container img {
+      width: 180px;
+      height: 180px;
       border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      flex-shrink: 0;
-      margin-left: -20px;
-    }
-
-    .photo-container img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
-      display: block;
+      margin-right: 40px;
+      margin-left: 50px;
     }
 
-    .presentation .intro {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    .presentation-text {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .presentation .intro p {
-      margin: 5px 0;
       text-align: left;
+      line-height: 1.8;
     }
 
-    /* Bloc compétences */
     .competences {
-      max-width: 600px;
-      width: 100%;
-      margin-top: 40px;
-      margin-left: auto;
-      margin-right: 20px;
+      text-align: right;
+      margin-right: 60px;
+      line-height: 1.8;
     }
 
-    .competences .intro {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .competences .intro p {
-      margin: 5px 0;
-      text-align: left;
+    .competences p {
+      margin-bottom: 10px;
     }
 
     .competences .skills {
-      margin-top: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      margin-top: 20px;
+      text-align: right;
     }
 
     .competences .skills div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      margin-bottom: 8px;
     }
 
-    .competences .skills span.tiret {
-      color: #00eaff;
+    .contact-button {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .contact-button button {
+      background-color: white;
+      color: #111;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
       font-weight: bold;
+      transition: 0.3s;
     }
 
-    .competences .skills span.icon {
-      font-size: 1.5rem;
-      color: #00eaff;
+    .contact-button button:hover {
+      background-color: #ddd;
     }
 
-    /* Section Book */
     .book {
-      width: 100%;
-      margin-top: 60px;
+      padding: 60px 80px;
     }
 
-    .book p {
-      line-height: 1.6;
+    .book h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+
+    .book-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
 
     .book-block {
-      max-width: 800px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
     }
 
-    .book-left {
-      margin-left: 40px;
+    .book-text {
+      width: 45%;
+      line-height: 1.8;
+    }
+
+    .book-text.left {
       text-align: left;
+      margin-left: 60px;
     }
 
-    .book-right {
-      margin-left: auto;
-      margin-right: 40px;
-      text-align: left;
+    .book-text.right {
+      text-align: right;
+      margin-right: 60px;
     }
 
-    /* Responsive */
-    @media (max-width: 700px) {
-      .presentation-container {
-        flex-direction: column;
-        align-items: center;
-        margin-left: 0;
-      }
-      .photo-container {
-        width: 80%;
-        height: auto;
-        margin-left: 0;
-      }
-      .competences {
-        margin-left: 0;
-        margin-right: 0;
-      }
-      .book-left,
-      .book-right {
-        margin: 0 auto;
-      }
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+      justify-items: center;
     }
+
+    .video {
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 225px;
+      border-radius: 12px;
+    }
+
+    .video h3 {
+      margin-top: 15px;
+      font-size: 1.2em;
+    }
+
+    .video p {
+      font-size: 0.95em;
+      color: #ccc;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo-container">
-      <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy" class="logo">
-    </div>
+    <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy">
     <h1>Bienvenue chez Studio Alchemy</h1>
   </header>
 
-  <main>
-    <!-- Partie 1 : Présentation -->
-    <h2 class="section-title">Présentation</h2>
+  <!-- SECTION 1 - Présentation -->
+  <section class="section">
+    <h2>Présentation</h2>
     <div class="presentation-container">
-      <div class="photo-container">
-        <img src="photo.jpg" alt="Photo de Vivian">
-      </div>
-      <section class="presentation">
-        <div class="intro">
-          <p>Salut !</p>
-          <p>moi c'est Vivian,</p>
-          <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
-          <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque..</p>
-        </div>
-      </section>
-    </div>
-
-    <!-- Partie 2 : Compétences -->
-    <section class="competences">
-      <div class="intro">
-        <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
-        <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
-
-        <div class="skills">
-          <div><span class="tiret">-</span> <span class="icon">🎬</span> Montage (DaVinci Resolve)</div>
-          <div><span class="tiret">-</span> <span class="icon">✨</span> Textes animés & effets visuels</div>
-          <div><span class="tiret">-</span> <span class="icon">🎵</span> Sound design</div>
-          <div><span class="tiret">-</span> <span class="icon">🎨</span> Colorimétrie</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Partie 3 : Book -->
-    <h2 class="section-title">Book</h2>
-    <div class="book">
-      <div class="book-block book-left">
-        <p><strong>Chez Studio Alchemy</strong>, nous transformons vos idées en vidéos uniques et percutantes.</p>
-        <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
-      </div>
-
-      <div class="book-block book-right">
-        <p><strong>Nos services incluent :</strong></p>
-        <p>Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.</p>
-        <p>Réalisation de montages longs (voyages, événements, mariages) pour raconter vos histoires avec émotion.</p>
-        <p>Intégration d’éléments visuels et sonores (textes animés, effets spéciaux simples, sound design, colorimétrie) pour un rendu soigné et unique.</p>
-      </div>
-
-      <div class="book-block book-left">
-        <p><strong>Notre mission :</strong></p>
-        <p>Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
-        <p>Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.</p>
+      <img src="photo.jpg" alt="Photo de Vivian">
+      <div class="presentation-text">
+        <p>Salut !</p>
+        <p>Moi c'est Vivian,</p>
+        <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
+        <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque.</p>
       </div>
     </div>
+  </section>
 
-    <!-- Bouton centré -->
-    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
-  </main>
+  <!-- SECTION 2 - Compétences -->
+  <section class="section">
+    <div class="competences">
+      <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
+      <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
+      <div class="skills">
+        <div>- 🎬 Montage (DaVinci Resolve)</div>
+        <div>- ✨ Textes animés & effets visuels</div>
+        <div>- 🎵 Sound design</div>
+        <div>- 🎨 Colorimétrie</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 - Book -->
+  <section class="book">
+    <h2>Book</h2>
+
+    <div class="book-section">
+      <div class="book-block">
+        <div class="book-text left">
+          <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.</p>
+          <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
+        </div>
+      </div>
+
+      <div class="book-block">
+        <div class="book-text right">
+          <p>Nos services incluent :</p>
+          <p>Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.</p>
+          <p>Réalisation de montages longs (voyages, événements, mariages) pour raconter vos histoires avec émotion.</p>
+          <p>Intégration d’éléments visuels et sonores (textes animés, effets spéciaux simples, sound design, colorimétrie) pour un rendu soigné et unique.</p>
+        </div>
+      </div>
+
+      <div class="book-block">
+        <div class="book-text left">
+          <p>Notre mission :</p>
+          <p>Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
+          <p>Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDÉOS YOUTUBE SOUS TEXTE 5 -->
+    <div class="videos">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/saovOqehmKY" frameborder="0" allowfullscreen></iframe>
+        <h3>Showreel de juin 2025</h3>
+        <p>Une vidéo au format horizontal avec musique de fond, lettrage + effet d'apparition et de disparition, transitions stylisées rythmées, colorimétrie ainsi que plusieurs effets vidéo et sonores.</p>
+      </div>
+
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" frameborder="0" allowfullscreen></iframe>
+        <h3>Vidéo de voyage montée en novembre 2024</h3>
+        <p>Une vidéo au format vertical retraçant une journée de balade à La Rochelle avec musique de fond, lettrage et transitions nettes et rythmées.</p>
+      </div>
+
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" frameborder="0" allowfullscreen></iframe>
+        <h3>Edit d’un personnage roleplay – août 2025</h3>
+        <p>Une vidéo au format vertical mettant en avant un personnage roleplay avec musique de fond, transitions stylisées et rythme dynamique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOUTON CONTACT -->
+  <div class="contact-button">
+    <button>Contacte-moi ici</button>
+  </div>
 
 </body>
 </html>
