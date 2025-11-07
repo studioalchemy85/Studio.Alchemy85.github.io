@@ -90,17 +90,25 @@
       transform: scale(1.05);
     }
 
-    /* Photo entre le titre et la présentation */
+    /* Bloc présentation avec photo à gauche */
+    .presentation-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      max-width: 800px;
+      width: 100%;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap; /* pour mobile */
+    }
+
     .photo-container {
       width: 150px;
       height: 150px;
       border-radius: 20px;
       overflow: hidden;
-      margin: 20px 0;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-shrink: 0;
     }
 
     .photo-container img {
@@ -110,18 +118,16 @@
       display: block;
     }
 
-    /* Présentation */
-    .presentation-container {
-      max-width: 800px;
-      width: 100%;
-      margin-top: 20px;
-    }
-
     .presentation .intro {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .presentation .intro p {
@@ -130,7 +136,7 @@
     }
 
     .presentation .intro p:first-child {
-      margin-top: 20px;
+      margin-top: 0;
     }
 
     /* Compétences */
@@ -175,6 +181,18 @@
       color: #00eaff;
     }
 
+    /* Responsive */
+    @media (max-width: 700px) {
+      .presentation-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .photo-container {
+        width: 80%;
+        height: auto;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -187,13 +205,11 @@
   </header>
 
   <main>
-    <!-- Photo entre le titre et la présentation -->
-    <div class="photo-container">
-      <img src="photo.jpg" alt="Photo de Vivian">
-    </div>
-
-    <!-- Partie 1 : Présentation -->
+    <!-- Partie 1 : Présentation avec photo à gauche -->
     <div class="presentation-container">
+      <div class="photo-container">
+        <img src="photo.jpg" alt="Photo de Vivian">
+      </div>
       <section class="presentation">
         <div class="intro">
           <p>Salut !</p>
