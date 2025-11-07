@@ -102,7 +102,7 @@
       text-shadow: 0 0 10px #00eaff;
     }
 
-    /* Bloc présentation avec photo à gauche */
+    /* Bloc présentation */
     .presentation-container {
       display: flex;
       flex-direction: row;
@@ -148,13 +148,13 @@
       text-align: left;
     }
 
-    /* Bloc compétences aligné à droite avec marge */
+    /* Bloc compétences */
     .competences {
       max-width: 600px;
       width: 100%;
       margin-top: 40px;
-      margin-left: auto; /* pousse le bloc à droite */
-      margin-right: 20px; /* marge à droite */
+      margin-left: auto;
+      margin-right: 20px;
     }
 
     .competences .intro {
@@ -192,6 +192,36 @@
       color: #00eaff;
     }
 
+    /* Section Book */
+    .book {
+      width: 100%;
+      margin-top: 60px;
+    }
+
+    .book p {
+      line-height: 1.6;
+    }
+
+    .book-block {
+      max-width: 800px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .book-left {
+      margin-left: 40px;
+      text-align: left;
+    }
+
+    .book-right {
+      margin-left: auto;
+      margin-right: 40px;
+      text-align: left;
+    }
+
     /* Responsive */
     @media (max-width: 700px) {
       .presentation-container {
@@ -208,8 +238,11 @@
         margin-left: 0;
         margin-right: 0;
       }
+      .book-left,
+      .book-right {
+        margin: 0 auto;
+      }
     }
-
   </style>
 </head>
 <body>
@@ -222,7 +255,7 @@
   </header>
 
   <main>
-    <!-- Partie 1 : Présentation avec titre centré et photo -->
+    <!-- Partie 1 : Présentation -->
     <h2 class="section-title">Présentation</h2>
     <div class="presentation-container">
       <div class="photo-container">
@@ -238,7 +271,7 @@
       </section>
     </div>
 
-    <!-- Partie 2 : Compétences alignée à droite avec marge -->
+    <!-- Partie 2 : Compétences -->
     <section class="competences">
       <div class="intro">
         <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
@@ -252,6 +285,28 @@
         </div>
       </div>
     </section>
+
+    <!-- Partie 3 : Book -->
+    <h2 class="section-title">Book</h2>
+    <div class="book">
+      <div class="book-block book-left">
+        <p><strong>Chez Studio Alchemy</strong>, nous transformons vos idées en vidéos uniques et percutantes.</p>
+        <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
+      </div>
+
+      <div class="book-block book-right">
+        <p><strong>Nos services incluent :</strong></p>
+        <p>Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.</p>
+        <p>Réalisation de montages longs (voyages, événements, mariages) pour raconter vos histoires avec émotion.</p>
+        <p>Intégration d’éléments visuels et sonores (textes animés, effets spéciaux simples, sound design, colorimétrie) pour un rendu soigné et unique.</p>
+      </div>
+
+      <div class="book-block book-left">
+        <p><strong>Notre mission :</strong></p>
+        <p>Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
+        <p>Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.</p>
+      </div>
+    </div>
 
     <!-- Bouton centré -->
     <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
