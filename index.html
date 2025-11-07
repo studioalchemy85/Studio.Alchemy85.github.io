@@ -94,7 +94,7 @@
     .presentation-container {
       display: flex;
       flex-direction: row;
-      align-items: stretch; /* fait que la photo et le texte prennent la même hauteur */
+      align-items: stretch; /* pour que la photo et le texte aient la même hauteur */
       max-width: 800px;
       width: 100%;
       gap: 20px;
@@ -111,7 +111,7 @@
       min-width: 250px;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* centrer verticalement le texte */
+      justify-content: center;
     }
 
     .presentation .intro p {
@@ -124,8 +124,8 @@
     }
 
     .presentation .photo {
-      width: 200px; /* redimensionné */
-      height: auto;
+      width: 250px; /* largeur fixe */
+      height: 100%; /* hauteur = bloc texte */
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       object-fit: cover;
