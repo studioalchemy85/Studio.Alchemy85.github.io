@@ -94,7 +94,7 @@
     .presentation-container {
       display: flex;
       flex-direction: row;
-      align-items: stretch; /* pour que la photo et le texte aient la même hauteur */
+      align-items: flex-start; /* on ne force plus stretch */
       max-width: 800px;
       width: 100%;
       gap: 20px;
@@ -124,12 +124,13 @@
     }
 
     .presentation .photo {
-      width: 20px; /* largeur très petite pour test */
-      height: 100%; /* hauteur = bloc texte */
+      width: 150px; /* largeur fixe */
+      height: 50%; /* hauteur réduite à 50% du bloc texte */
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       object-fit: cover;
       flex-shrink: 0;
+      align-self: center; /* centrer verticalement par rapport au texte */
     }
 
     /* Compétences */
