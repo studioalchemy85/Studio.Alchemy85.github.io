@@ -90,11 +90,16 @@
       transform: scale(1.05);
     }
 
-    /* Présentation */
-    .presentation {
-      max-width: 600px;
+    /* Présentation avec photo */
+    .presentation-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      max-width: 800px;
       width: 100%;
+      gap: 30px;
       margin-top: 40px;
+      flex-wrap: wrap; /* pour mobile */
     }
 
     .presentation .intro {
@@ -102,6 +107,8 @@
       padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      flex: 1;
+      min-width: 250px;
     }
 
     .presentation .intro p {
@@ -111,6 +118,14 @@
 
     .presentation .intro p:first-child {
       margin-top: 20px;
+    }
+
+    .presentation .photo {
+      width: 250px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
     }
 
     /* Compétences */
@@ -155,6 +170,17 @@
       color: #00eaff;
     }
 
+    /* Responsive */
+    @media (max-width: 700px) {
+      .presentation-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .presentation .photo {
+        width: 80%;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -167,15 +193,18 @@
   </header>
 
   <main>
-    <!-- Partie 1 : Présentation -->
-    <section class="presentation">
-      <div class="intro">
-        <p>Salut !</p>
-        <p>moi c'est Vivian,</p>
-        <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
-        <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque..</p>
-      </div>
-    </section>
+    <!-- Partie 1 : Présentation avec photo -->
+    <div class="presentation-container">
+      <section class="presentation">
+        <div class="intro">
+          <p>Salut !</p>
+          <p>moi c'est Vivian,</p>
+          <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
+          <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque..</p>
+        </div>
+      </section>
+      <img src="photo.jpg" alt="Photo de Vivian" class="photo">
+    </div>
 
     <!-- Partie 2 : Compétences -->
     <section class="competences">
@@ -183,7 +212,6 @@
         <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
         <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
 
-        <!-- Liste visuelle des compétences avec tirets -->
         <div class="skills">
           <div><span class="tiret">-</span> <span class="icon">🎬</span> Montage (DaVinci Resolve)</div>
           <div><span class="tiret">-</span> <span class="icon">✨</span> Textes animés & effets visuels</div>
@@ -198,3 +226,4 @@
 
 </body>
 </html>
+
