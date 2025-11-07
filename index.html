@@ -16,7 +16,7 @@
 
     /* Header fixe en haut */
     header {
-      position: sticky; /* reste en haut quand on scroll */
+      position: sticky;
       top: 0;
       display: flex;
       flex-direction: column;
@@ -38,8 +38,6 @@
       margin-bottom: 15px;
       transition: all 0.3s ease;
       box-shadow: 0 0 5px rgba(0,0,0,0.2);
-
-      /* Animation roulé + petit rebond */
       transform: translateX(-300px) rotate(-720deg);
       animation: rollInBounce 1.2s forwards;
     }
@@ -77,29 +75,6 @@
       padding: 40px 20px;
     }
 
-    /* Partie Présentation */
-    .presentation {
-      max-width: 600px;
-      width: 100%;
-      margin-top: 40px;
-    }
-
-    .presentation .intro {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .presentation .intro p {
-      margin: 5px 0;
-      text-align: left;
-    }
-
-    .presentation .intro p:first-child {
-      margin-top: 20px;
-    }
-
     a.button {
       display: inline-block;
       margin-top: 20px;
@@ -115,6 +90,39 @@
     a.button:hover {
       background-color: #00b7cc;
       transform: scale(1.05);
+    }
+
+    /* Partie Présentation */
+    .presentation {
+      max-width: 600px;
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    .presentation .intro,
+    .competences .intro {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .presentation .intro p,
+    .competences .intro p {
+      margin: 5px 0;
+      text-align: left;
+    }
+
+    .presentation .intro p:first-child,
+    .competences .intro p:first-child {
+      margin-top: 20px;
+    }
+
+    /* Partie Compétences */
+    .competences {
+      max-width: 600px;
+      width: 100%;
+      margin-top: 40px;
     }
 
   </style>
@@ -136,6 +144,14 @@
         <p>moi c'est Vivian,</p>
         <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
         <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque..</p>
+      </div>
+    </section>
+
+    <!-- Partie 2 : Compétences -->
+    <section class="competences">
+      <div class="intro">
+        <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
+        <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
       </div>
     </section>
 
