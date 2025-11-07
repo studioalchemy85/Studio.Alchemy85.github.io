@@ -94,12 +94,12 @@
     .presentation-container {
       display: flex;
       flex-direction: row;
-      align-items: flex-start; /* on ne force plus stretch */
+      align-items: flex-start;
       max-width: 800px;
       width: 100%;
       gap: 20px;
       margin-top: 40px;
-      flex-wrap: wrap; /* pour mobile */
+      flex-wrap: wrap;
     }
 
     .presentation .intro {
@@ -124,13 +124,13 @@
     }
 
     .presentation .photo {
-      width: 150px; /* largeur fixe */
-      height: 50%; /* hauteur réduite à 50% du bloc texte */
+      width: 150px; /* même largeur que le logo */
+      height: 150px; /* même hauteur que le logo */
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       object-fit: cover;
       flex-shrink: 0;
-      align-self: center; /* centrer verticalement par rapport au texte */
+      align-self: center;
     }
 
     /* Compétences */
