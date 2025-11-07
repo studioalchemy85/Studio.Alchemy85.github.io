@@ -69,7 +69,7 @@
     main {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start; /* permet d'aligner à gauche la présentation */
       padding: 40px 20px;
     }
 
@@ -90,16 +90,17 @@
       transform: scale(1.05);
     }
 
-    /* Bloc présentation avec photo à gauche sur la même ligne */
+    /* Bloc présentation avec photo à gauche légèrement décalée */
     .presentation-container {
       display: flex;
       flex-direction: row;
-      align-items: center; /* aligne photo et texte verticalement au centre */
+      align-items: center;
       gap: 20px;
       max-width: 800px;
       width: 100%;
       margin-top: 40px;
-      flex-wrap: nowrap; /* empêche la photo de passer sous le texte */
+      flex-wrap: nowrap;
+      margin-left: 20px; /* marge à gauche pour éviter que la photo touche le bord */
     }
 
     .photo-container {
@@ -109,6 +110,7 @@
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       flex-shrink: 0;
+      margin-left: -20px; /* décale légèrement la photo vers la gauche */
     }
 
     .photo-container img {
@@ -176,15 +178,17 @@
       color: #00eaff;
     }
 
-    /* Responsive : passe en colonne sur mobile */
+    /* Responsive */
     @media (max-width: 700px) {
       .presentation-container {
         flex-direction: column;
         align-items: center;
+        margin-left: 0;
       }
       .photo-container {
         width: 80%;
         height: auto;
+        margin-left: 0;
       }
     }
 
@@ -200,7 +204,7 @@
   </header>
 
   <main>
-    <!-- Partie 1 : Présentation avec photo à gauche sur la même ligne -->
+    <!-- Partie 1 : Présentation avec photo légèrement décalée vers la gauche -->
     <div class="presentation-container">
       <div class="photo-container">
         <img src="photo.jpg" alt="Photo de Vivian">
