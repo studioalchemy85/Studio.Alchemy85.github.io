@@ -16,7 +16,7 @@
       align-items: center;
       height: 100vh;
       text-align: center;
-      padding: 0 20px; /* pour ne pas coller au bord */
+      padding: 0 20px;
     }
 
     h1 {
@@ -48,17 +48,25 @@
       transform: scale(1.05);
     }
 
+    /* Bloc de texte en “carte” */
+    .intro {
+      background-color: rgba(0, 0, 0, 0.6); /* fond semi-transparent */
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+      width: 100%;
+    }
+
     /* Styles spécifiques pour les paragraphes de présentation */
     .intro p {
-      margin: 5px 0;       /* réduit l'espacement vertical entre les paragraphes */
-      text-align: left;    /* aligne le texte à gauche */
+      margin: 5px 0;
+      text-align: left;
     }
 
-    /* Augmente l'espace avant le premier paragraphe */
     .intro p:first-child {
-      margin-top: 20px;    /* ajuster cette valeur selon l'espace désiré */
+      margin-top: 20px;
     }
-
   </style>
 </head>
 <body>
