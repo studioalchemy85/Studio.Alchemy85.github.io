@@ -217,8 +217,8 @@
     /* --- Grille Vidéos --- */
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 vidéos sur la même ligne */
-      gap: 20px; /* espacement intermédiaire */
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px; /* ajusté pour espacement intermédiaire optimal */
       justify-content: center;
       margin-top: 40px;
       width: 100%;
@@ -265,15 +265,16 @@
       color: #ddd;
     }
 
+    /* --- Responsive --- */
     @media (max-width: 1200px) {
       .video-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 vidéos sur tablette */
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 800px) {
       .video-grid {
-        grid-template-columns: 1fr; /* 1 vidéo sur mobile */
+        grid-template-columns: 1fr;
       }
     }
 
