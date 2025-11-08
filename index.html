@@ -217,7 +217,7 @@
     /* --- Grille Vidéos --- */
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       justify-items: center;
       margin-top: 40px;
@@ -263,67 +263,62 @@
 
     /* --- Tarifs --- */
     .tarif-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       margin-top: 20px;
     }
 
     .tarif-item {
-      background-color: rgba(0,0,0,0.6);
-      padding: 20px;
+      padding: 25px 20px;
       border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      flex: 1 1 300px;
-      min-width: 280px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background: linear-gradient(135deg, rgba(20,20,20,0.7), rgba(0,0,0,0.5));
+    }
+
+    .tarif-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 30px #00eaff, 0 0 40px rgba(0,234,255,0.4);
+    }
+
+    .tarif-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #00eaff;
     }
 
     .tarif-item p {
-      margin: 10px 0;
-    }
-
-    .delai-livraison {
-      margin-top: 30px;
-      text-align: center;
-      font-style: italic;
+      margin: 8px 0;
+      line-height: 1.4;
       color: #ddd;
     }
 
-    /* --- Responsives --- */
+    .delai-livraison {
+      text-align: center;
+      margin-top: 30px;
+      font-style: italic;
+      color: #ccc;
+    }
+
+    /* --- Responsive --- */
     @media (max-width: 900px) {
-      .video-grid {
-        gap: 15px;
-      }
-      .tarif-grid {
+      .video-grid, .tarif-grid {
         gap: 15px;
       }
     }
 
     @media (max-width: 600px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-      .tarif-item {
-        flex: 1 1 100%;
-      }
-    }
-
-    /* --- Ajustement marges sur grand écran (plus centré) --- */
-    @media (min-width: 1200px) {
       main {
-        padding: 60px 120px;
+        padding: 40px 20px;
       }
-      .presentation-container {
-        margin-left: 120px;
-      }
-      .competences {
-        margin-right: 120px;
-      }
-      .book .bloc.left {
-        margin-left: 120px;
-      }
-      .book .bloc.right {
-        margin-right: 120px;
+      .tarif-item, .video-item {
+        padding: 20px 15px;
       }
     }
   </style>
@@ -422,57 +417,49 @@
     <h2 class="section-title">Tarifs</h2>
     <section class="tarifs">
       <div class="tarif-grid">
-        <!-- Ligne 1 -->
-        <div class="tarif-item">
-          <p>📱 TikTok / Shorts (15 à 120s)</p>
+        <div class="tarif-item tarif-tiktok">
+          <p class="tarif-title">📱 TikTok / Shorts (15 à 120s)</p>
           <p>🔹 Basic – 20 €<br>Découpe, rythme, musique de fond.<br>1 révision comprise.</p>
           <p>🔹 Standard – 30 €<br>Sound FX, zoom dynamique, transitions stylisées.<br>2 révisions comprises.</p>
           <p>🔹 Premium – 40 €<br>Texte animé, VFX simples, colorimétrie, sous-titres.<br>3 révisions comprises</p>
         </div>
 
-        <div class="tarif-item">
-          <p>📹 Vidéo de voyage / vlog / YouTube</p>
+        <div class="tarif-item tarif-vlog">
+          <p class="tarif-title">📹 Vidéo de voyage / vlog / YouTube</p>
           <p>🔹 Basic (2-5 min) – 60 €<br>Montage simple, effets dynamiques, musique libre.<br>1 révision comprise.</p>
           <p>🔹 Standard (6-10 min) – 100 €<br>Narration, transitions créatives, titrage, sound FX.<br>2 révisions comprises.</p>
           <p>🔹 Premium (10-20 min) – 150 €<br>Image de référence, texte animé, VFX.<br>3 révisions comprises.</p>
           <p>🔹 Long format (40 min) – 200 €<br>Montage avancé, rythme adapté, titrage, sound FX, colorimétrie.<br>5 Révisions (7 jours après livraison).<br>(Supplément de 10-20 € par tranche de 5 min au-delà de 40 min.)</p>
         </div>
 
-        <div class="tarif-item">
-          <p>💍 Vidéo de mariage</p>
+        <div class="tarif-item tarif-mariage">
+          <p class="tarif-title">💍 Vidéo de mariage</p>
           <p>🔹 Highlight (3-5 min) – 150 € à 250 €<br>Sélection des meilleurs moments, musique adaptée, montage rythmé.<br>5 révisions comprises.</p>
           <p>🔹 Film complet (10-30 min) – 300 € à 500 €<br>Histoire complète du mariage, transitions créatives, texte animé, VFX.<br>Révisions illimitées (7 jours après livraison).</p>
         </div>
 
-        <!-- Ligne 2 -->
-        <div class="tarif-item">
-          <p>📦 Forfaits créateurs</p>
+        <div class="tarif-item tarif-pack">
+          <p class="tarif-title">📦 Forfaits créateurs</p>
           <p>🔹 Pack Starter – 20%<br>3 vidéos au format Standard/Premium.<br>Révisions en fonction du type de pack.</p>
           <p>🔹 Pack Creator – 25%<br>3 vidéos au format Standard/Premium/Long Format (1 par semaine).<br>Révisions en fonction du type de pack.</p>
         </div>
 
-        <div class="tarif-item">
-          <p>🔁 Révisions hors forfait</p>
+        <div class="tarif-item tarif-revision">
+          <p class="tarif-title">🔁 Révisions hors forfait</p>
           <p>TikTok / Shorts : +10 € par révision supplémentaire</p>
           <p>YouTube / Vlog / Voyage : +15 € par révision supplémentaire</p>
           <p>Vidéo de mariage : +15 € par révision supplémentaire</p>
         </div>
 
-        <!-- Ligne 3 -->
-        <div class="tarif-item">
-          <p>🎉 Offre spéciale</p>
+        <div class="tarif-item tarif-offre">
+          <p class="tarif-title">🎉 Offre spéciale</p>
           <p>Pour tout nouveau client : -25 % sur le premier projet* ✨</p>
         </div>
       </div>
-
-      <!-- Texte délai livraison -->
-      <p class="delai-livraison">⏱ <strong>Livraison</strong> : chaque vidéo est unique. Le délai peut aller de <strong>1 jour à 2 semaines</strong> selon le travail nécessaire.</p>
-
+      <p class="delai-livraison">⏱ <strong>Livraison</strong> : chaque vidéo est unique. Le délai peut aller de <strong>24h à 2 semaines</strong> selon le travail nécessaire.</p>
     </section>
 
     <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
-
   </main>
-
 </body>
 </html>
