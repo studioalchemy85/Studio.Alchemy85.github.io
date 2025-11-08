@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Studio Alchemy</title>
+  <title>Portfolio - Studio Alchemy</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -288,6 +288,17 @@
       margin: 5px 0;
     }
 
+    .delivery-time {
+      background-color: rgba(0,0,0,0.6);
+      padding: 15px 20px;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      text-align: center;
+      font-style: italic;
+      color: #fff;
+    }
+
     @media (max-width: 1200px) {
       .video-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -464,8 +475,12 @@
         <div class="tarif-item fade-element">
           <h3>🎉 Offre spéciale</h3>
           <p>Pour tout nouveau client : -25 % sur le premier projet* ✨</p>
-          <p>⏱️ Temps de livraison : selon le travail demandé, cela peut varier de 24h à 1-2 semaines.</p>
         </div>
+      </div>
+
+      <!-- Temps de livraison -->
+      <div class="delivery-time fade-element">
+        ⏱️ Temps de livraison : chaques projets est spécial, leurs livraison peuvent varier de 24h à 1-2 semaines.
       </div>
     </section>
 
@@ -473,9 +488,7 @@
   </main>
 
   <script>
-    const faders = document.querySelectorAll(
-      '.fade-element, .video-item, .tarif-item, .presentation-container, .competences, .book .bloc, .section-title'
-    );
+    const faders = document.querySelectorAll('.fade-element');
 
     const appearOnScroll = () => {
       const triggerBottom = window.innerHeight * 0.85;
