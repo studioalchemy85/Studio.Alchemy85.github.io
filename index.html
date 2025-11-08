@@ -82,6 +82,31 @@
       padding: 40px 20px;
     }
 
+    /* --- Bouton Contact --- */
+    .fixed-contact {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+    }
+
+    .fixed-contact a {
+      display: block;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      color: #0f0f0f;
+      background-color: #00eaff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .fixed-contact a:hover {
+      background-color: #00b7cc;
+      transform: scale(1.05);
+    }
+
     /* --- Présentation --- */
     .presentation-container {
       display: flex;
@@ -195,7 +220,7 @@
       margin: 10px 0;
     }
 
-    /* --- Grille Vidéos --- */
+    /* --- Vidéos --- */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -219,7 +244,6 @@
     .video-item.visible {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
     .video-item:hover {
@@ -282,31 +306,7 @@
       margin: 5px 0;
     }
 
-    /* --- Bouton fixe --- */
-    .fixed-contact {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 200;
-    }
-
-    .fixed-contact a {
-      display: block;
-      padding: 12px 25px;
-      font-size: 1.1rem;
-      color: #0f0f0f;
-      background-color: #00eaff;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .fixed-contact a:hover {
-      background-color: #00b7cc;
-      transform: scale(1.05);
-    }
-
+    /* --- Responsive --- */
     @media (max-width: 900px) {
       .video-grid, .tarifs-grid {
         grid-template-columns: 1fr 1fr;
@@ -339,30 +339,129 @@
 
   <main>
 
-    <!-- Présentation, Compétences, Book et Vidéos comme précédemment -->
+    <!-- Présentation -->
+    <h2 class="section-title fade-element">Présentation</h2>
+    <div class="presentation-container fade-element">
+      <div class="photo-container">
+        <img src="photo.jpg" alt="Photo de Vivian">
+      </div>
+      <section class="presentation">
+        <div class="intro">
+          <p>Salut !</p>
+          <p>Moi c'est Vivian,</p>
+          <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
+          <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Compétences -->
+    <section class="competences fade-element">
+      <div class="intro">
+        <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
+        <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
+        <div class="skills">
+          <div><span class="tiret">-</span> <span class="icon">🎬</span> Montage (DaVinci Resolve)</div>
+          <div><span class="tiret">-</span> <span class="icon">✨</span> Textes animés & effets visuels</div>
+          <div><span class="tiret">-</span> <span class="icon">🎵</span> Sound design</div>
+          <div><span class="tiret">-</span> <span class="icon">🎨</span> Colorimétrie</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book -->
+    <h2 class="section-title fade-element">Book</h2>
+    <section class="book fade-element">
+      <div class="bloc left">
+        <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.</p>
+        <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
+      </div>
+
+      <div class="bloc right">
+        <p>Nos services incluent :</p>
+        <p>Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.</p>
+        <p>Réalisation de montages longs (voyages, événements, mariages) pour raconter vos histoires avec émotion.</p>
+        <p>Intégration d’éléments visuels et sonores (textes animés, effets spéciaux simples, sound design, colorimétrie) pour un rendu soigné et unique.</p>
+      </div>
+
+      <div class="bloc left">
+        <p>Notre mission :</p>
+        <p>Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
+        <p>Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.</p>
+      </div>
+
+      <!-- Vidéos -->
+      <div class="video-grid fade-element">
+        <div class="video-item">
+          <h3>Showreel de juin 2025</h3>
+          <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
+          <p>Une vidéo au format horizontal avec musique de fond, lettrage + effet d'apparition et disparition, transitions stylisées et rythmées, colorimétrie et plusieurs effets vidéo et sonores.</p>
+        </div>
+
+        <div class="video-item">
+          <h3>Vidéo de voyage - novembre 2024</h3>
+          <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
+          <p>Une vidéo au format vertical retraçant une journée de balade à La Rochelle avec musique de fond, lettrage et transitions nettes et rythmées.</p>
+        </div>
+
+        <div class="video-item">
+          <h3>Edit d’un personnage roleplay - août 2025</h3>
+          <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
+          <p>Une vidéo au format vertical mettant en avant un personnage roleplay avec musique de fond et transitions stylisées et rythmées.</p>
+        </div>
+
+        <div class="video-item">
+          <h3>Un épisode de let’s play tiré d’un live</h3>
+          <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
+          <p>Une vidéo au format horizontal avec une intro et une outro ainsi qu’une voix off en début et fin de vidéo.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Tarifs -->
-    <h2 class="section-title">Tarifs</h2>
-    <section class="tarifs">
+    <h2 class="section-title fade-element">Tarifs</h2>
+    <section class="tarifs fade-element">
       <div class="tarifs-grid">
+        <!-- Ligne 1 -->
         <div class="tarif-item">
           <h3>📱 TikTok / Shorts (15 à 120s)</h3>
           <p>🔹 Basic – 20 € : Découpe, rythme, musique de fond. 1 révision comprise.</p>
           <p>🔹 Standard – 30 € : Sound FX, zoom dynamique, transitions stylisées. 2 révisions comprises.</p>
           <p>🔹 Premium – 40 € : Texte animé, VFX simples, colorimétrie, sous-titres. 3 révisions comprises.</p>
         </div>
+
         <div class="tarif-item">
           <h3>📹 Vidéo de voyage / vlog / YouTube</h3>
           <p>🔹 Basic (2-5 min) – 60 € : Montage simple, effets dynamiques, musique libre. 1 révision comprise.</p>
           <p>🔹 Standard (6-10 min) – 100 € : Narration, transitions créatives, titrage, sound FX. 2 révisions comprises.</p>
           <p>🔹 Premium (10-20 min) – 150 € : Image de référence, texte animé, VFX. 3 révisions comprises.</p>
-          <p>🔹 Long format (40 min) – 200 € : Montage avancé, rythme adapté, titrage, sound FX, colorimétrie. 5 révisions (7 jours après livraison).</p>
+          <p>🔹 Long format (40 min) – 200 € : Montage avancé pour vidéos longues, rythme adapté, titrage, sound FX, colorimétrie. 5 Révisions (7 jours après livraison).</p>
         </div>
+
         <div class="tarif-item">
           <h3>💍 Vidéo de mariage</h3>
           <p>🔹 Highlight (3-5 min) – 150 € à 250 € : Sélection des meilleurs moments, musique adaptée, montage rythmé. 5 révisions comprises.</p>
           <p>🔹 Film complet (10-30 min) – 300 € à 500 € : Histoire complète du mariage, transitions créatives, texte animé, VFX. Révisions illimitées (7 jours après livraison).</p>
           <p>⏱️ Temps de livraison : selon le travail demandé, cela peut varier de 24h à 1-2 semaines.</p>
+        </div>
+
+        <!-- Ligne 2 -->
+        <div class="tarif-item">
+          <h3>📦 Forfaits créateurs</h3>
+          <p>🔹 Pack Starter – 20% : 3 vidéos au format Standard/Premium. Révisions en fonction du type de pack.</p>
+          <p>🔹 Pack Creator – 25% : 3 vidéos au format Standard/Premium/Long Format (1 par semaine). Révisions en fonction du type de pack.</p>
+        </div>
+
+        <div class="tarif-item">
+          <h3>🔁 Révisions hors forfait</h3>
+          <p>TikTok / Shorts : +10 € par révision supplémentaire</p>
+          <p>YouTube / Vlog / Voyage : +15 € par révision supplémentaire</p>
+          <p>Vidéo de mariage : +15 € par révision supplémentaire</p>
+        </div>
+
+        <div class="tarif-item">
+          <h3>🎉 Offre spéciale</h3>
+          <p>Pour tout nouveau client : -25 % sur le premier projet* ✨</p>
         </div>
       </div>
     </section>
@@ -375,18 +474,22 @@
   </div>
 
   <script>
-    // Fade in / out on scroll pour vidéos et tarifs
-    const fadeElements = document.querySelectorAll('.video-item, .tarif-item');
-    const handleFade = () => {
+    const faders = document.querySelectorAll('.fade-element, .video-item, .tarif-item');
+
+    const appearOnScroll = () => {
       const triggerBottom = window.innerHeight * 0.85;
-      fadeElements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < triggerBottom) el.classList.add('visible');
-        else el.classList.remove('visible');
+      faders.forEach(fader => {
+        const top = fader.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+          fader.classList.add('visible');
+        } else {
+          fader.classList.remove('visible');
+        }
       });
     };
-    window.addEventListener('scroll', handleFade);
-    window.addEventListener('load', handleFade);
+
+    window.addEventListener('scroll', appearOnScroll);
+    window.addEventListener('load', appearOnScroll);
   </script>
 
 </body>
