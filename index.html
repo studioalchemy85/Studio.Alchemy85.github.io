@@ -82,16 +82,9 @@
       padding: 40px 20px;
     }
 
-    /* --- Bouton Contact --- */
-    .fixed-contact {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 200;
-    }
-
-    .fixed-contact a {
+    a.button {
       display: block;
+      margin: 20px auto 0 auto;
       padding: 12px 25px;
       font-size: 1.1rem;
       color: #0f0f0f;
@@ -100,9 +93,13 @@
       text-decoration: none;
       transition: all 0.3s ease;
       text-align: center;
+      width: fit-content;
+      position: sticky;
+      bottom: 20px;
+      z-index: 100;
     }
 
-    .fixed-contact a:hover {
+    a.button:hover {
       background-color: #00b7cc;
       transform: scale(1.05);
     }
@@ -220,7 +217,7 @@
       margin: 10px 0;
     }
 
-    /* --- Vidéos --- */
+    /* --- Grille Vidéos --- */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -236,14 +233,7 @@
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       max-width: 400px;
-      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease, transform 0.8s ease;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .video-item.visible {
-      opacity: 1;
-      transform: translateY(0);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .video-item:hover {
@@ -287,14 +277,6 @@
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .tarif-item.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .tarif-item h3 {
@@ -306,19 +288,40 @@
       margin: 5px 0;
     }
 
-    /* --- Responsive --- */
     @media (max-width: 1200px) {
-      .video-grid { grid-template-columns: repeat(2, 1fr); }
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tarifs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    @media (max-width: 800px) {
-      .video-grid, .tarifs-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 900px) {
+      .video-grid, .tarifs-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 600px) {
-      .video-grid, .tarifs-grid { grid-template-columns: 1fr; }
+      .video-grid, .tarifs-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
+    /* --- Fade In / Out --- */
+    .fade-element, .video-item, .tarif-item, .presentation-container, .competences, .book .bloc, .section-title {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-element.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- Ajustement marges sur grand écran --- */
     @media (min-width: 1200px) {
       main { padding: 60px 120px; }
       .presentation-container { margin-left: 120px; }
@@ -330,7 +333,7 @@
 </head>
 <body>
 
-  <header>
+  <header class="fade-element">
     <div class="logo-container">
       <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy" class="logo">
     </div>
@@ -348,7 +351,7 @@
       <section class="presentation">
         <div class="intro">
           <p>Salut !</p>
-          <p>Moi c'est Vivian,</p>
+          <p>moi c'est Vivian,</p>
           <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
           <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque.</p>
         </div>
@@ -372,19 +375,19 @@
     <!-- Book -->
     <h2 class="section-title fade-element">Book</h2>
     <section class="book fade-element">
-      <div class="bloc left">
+      <div class="bloc left fade-element">
         <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.</p>
         <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
       </div>
 
-      <div class="bloc right">
+      <div class="bloc right fade-element">
         <p>Nos services incluent :</p>
         <p>Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.</p>
         <p>Réalisation de montages longs (voyages, événements, mariages) pour raconter vos histoires avec émotion.</p>
         <p>Intégration d’éléments visuels et sonores (textes animés, effets spéciaux simples, sound design, colorimétrie) pour un rendu soigné et unique.</p>
       </div>
 
-      <div class="bloc left">
+      <div class="bloc left fade-element">
         <p>Notre mission :</p>
         <p>Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
         <p>Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.</p>
@@ -392,25 +395,25 @@
 
       <!-- Vidéos -->
       <div class="video-grid fade-element">
-        <div class="video-item">
+        <div class="video-item fade-element">
           <h3>Showreel de juin 2025</h3>
           <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
           <p>Une vidéo au format horizontal avec musique de fond, lettrage + effet d'apparition et disparition, transitions stylisées et rythmées, colorimétrie et plusieurs effets vidéo et sonores.</p>
         </div>
 
-        <div class="video-item">
+        <div class="video-item fade-element">
           <h3>Vidéo de voyage - novembre 2024</h3>
           <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
           <p>Une vidéo au format vertical retraçant une journée de balade à La Rochelle avec musique de fond, lettrage et transitions nettes et rythmées.</p>
         </div>
 
-        <div class="video-item">
+        <div class="video-item fade-element">
           <h3>Edit d’un personnage roleplay - août 2025</h3>
           <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
           <p>Une vidéo au format vertical mettant en avant un personnage roleplay avec musique de fond et transitions stylisées et rythmées.</p>
         </div>
 
-        <div class="video-item">
+        <div class="video-item fade-element">
           <h3>Un épisode de let’s play tiré d’un live</h3>
           <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
           <p>Une vidéo au format horizontal avec une intro et une outro ainsi qu’une voix off en début et fin de vidéo.</p>
@@ -423,14 +426,14 @@
     <section class="tarifs fade-element">
       <div class="tarifs-grid">
         <!-- Ligne 1 -->
-        <div class="tarif-item">
+        <div class="tarif-item fade-element">
           <h3>📱 TikTok / Shorts (15 à 120s)</h3>
           <p>🔹 Basic – 20 € : Découpe, rythme, musique de fond. 1 révision comprise.</p>
           <p>🔹 Standard – 30 € : Sound FX, zoom dynamique, transitions stylisées. 2 révisions comprises.</p>
           <p>🔹 Premium – 40 € : Texte animé, VFX simples, colorimétrie, sous-titres. 3 révisions comprises.</p>
         </div>
 
-        <div class="tarif-item">
+        <div class="tarif-item fade-element">
           <h3>📹 Vidéo de voyage / vlog / YouTube</h3>
           <p>🔹 Basic (2-5 min) – 60 € : Montage simple, effets dynamiques, musique libre. 1 révision comprise.</p>
           <p>🔹 Standard (6-10 min) – 100 € : Narration, transitions créatives, titrage, sound FX. 2 révisions comprises.</p>
@@ -438,27 +441,27 @@
           <p>🔹 Long format (40 min) – 200 € : Montage avancé pour vidéos longues, rythme adapté, titrage, sound FX, colorimétrie. 5 Révisions (7 jours après livraison).</p>
         </div>
 
-        <div class="tarif-item">
+        <div class="tarif-item fade-element">
           <h3>💍 Vidéo de mariage</h3>
           <p>🔹 Highlight (3-5 min) – 150 € à 250 € : Sélection des meilleurs moments, musique adaptée, montage rythmé. 5 révisions comprises.</p>
           <p>🔹 Film complet (10-30 min) – 300 € à 500 € : Histoire complète du mariage, transitions créatives, texte animé, VFX. Révisions illimitées (7 jours après livraison).</p>
         </div>
 
         <!-- Ligne 2 -->
-        <div class="tarif-item">
+        <div class="tarif-item fade-element">
           <h3>📦 Forfaits créateurs</h3>
           <p>🔹 Pack Starter – 20% : 3 vidéos au format Standard/Premium. Révisions en fonction du type de pack.</p>
           <p>🔹 Pack Creator – 25% : 3 vidéos au format Standard/Premium/Long Format (1 par semaine). Révisions en fonction du type de pack.</p>
         </div>
 
-        <div class="tarif-item">
+        <div class="tarif-item fade-element">
           <h3>🔁 Révisions hors forfait</h3>
           <p>TikTok / Shorts : +10 € par révision supplémentaire</p>
           <p>YouTube / Vlog / Voyage : +15 € par révision supplémentaire</p>
           <p>Vidéo de mariage : +15 € par révision supplémentaire</p>
         </div>
 
-        <div class="tarif-item">
+        <div class="tarif-item fade-element">
           <h3>🎉 Offre spéciale</h3>
           <p>Pour tout nouveau client : -25 % sur le premier projet* ✨</p>
           <p>⏱️ Temps de livraison : selon le travail demandé, cela peut varier de 24h à 1-2 semaines.</p>
@@ -466,18 +469,17 @@
       </div>
     </section>
 
+    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
   </main>
 
-  <!-- Bouton fixe -->
-  <div class="fixed-contact">
-    <a href="mailto:studio.alchemy85@gmail.com">Contacte-moi ici</a>
-  </div>
-
   <script>
-    const faders = document.querySelectorAll('.fade-element, .video-item, .tarif-item');
+    const faders = document.querySelectorAll(
+      '.fade-element, .video-item, .tarif-item, .presentation-container, .competences, .book .bloc, .section-title'
+    );
 
     const appearOnScroll = () => {
       const triggerBottom = window.innerHeight * 0.85;
+
       faders.forEach(fader => {
         const top = fader.getBoundingClientRect().top;
         if (top < triggerBottom) {
