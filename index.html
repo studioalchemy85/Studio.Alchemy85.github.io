@@ -223,7 +223,7 @@
     /* --- Vidéos --- */
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       justify-items: center;
       margin-top: 40px;
@@ -236,7 +236,7 @@
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       max-width: 400px;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease, transform 0.8s ease;
       opacity: 0;
       transform: translateY(20px);
     }
@@ -307,16 +307,16 @@
     }
 
     /* --- Responsive --- */
-    @media (max-width: 900px) {
-      .video-grid, .tarifs-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    @media (max-width: 1200px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 800px) {
+      .video-grid, .tarifs-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 600px) {
-      .video-grid, .tarifs-grid {
-        grid-template-columns: 1fr;
-      }
+      .video-grid, .tarifs-grid { grid-template-columns: 1fr; }
     }
 
     @media (min-width: 1200px) {
@@ -442,7 +442,6 @@
           <h3>💍 Vidéo de mariage</h3>
           <p>🔹 Highlight (3-5 min) – 150 € à 250 € : Sélection des meilleurs moments, musique adaptée, montage rythmé. 5 révisions comprises.</p>
           <p>🔹 Film complet (10-30 min) – 300 € à 500 € : Histoire complète du mariage, transitions créatives, texte animé, VFX. Révisions illimitées (7 jours après livraison).</p>
-          <p>⏱️ Temps de livraison : selon le travail demandé, cela peut varier de 24h à 1-2 semaines.</p>
         </div>
 
         <!-- Ligne 2 -->
@@ -462,6 +461,7 @@
         <div class="tarif-item">
           <h3>🎉 Offre spéciale</h3>
           <p>Pour tout nouveau client : -25 % sur le premier projet* ✨</p>
+          <p>⏱️ Temps de livraison : selon le travail demandé, cela peut varier de 24h à 1-2 semaines.</p>
         </div>
       </div>
     </section>
