@@ -79,7 +79,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      padding: 40px 20px;
+      padding: 40px 40px; /* marges plus larges sur les côtés */
     }
 
     a.button {
@@ -218,7 +218,7 @@
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 15px; /* espacement réduit */
       justify-items: center;
       margin-top: 40px;
     }
@@ -270,29 +270,6 @@
     @media (max-width: 600px) {
       .video-grid {
         grid-template-columns: 1fr;
-      }
-    }
-
-    /* --- Ajustement marges sur grand écran (plus centré) --- */
-    @media (min-width: 1200px) {
-      main {
-        padding: 60px 120px; /* marge à gauche/droite plus grande */
-      }
-
-      .presentation-container {
-        margin-left: 120px;
-      }
-
-      .competences {
-        margin-right: 120px;
-      }
-
-      .book .bloc.left {
-        margin-left: 120px;
-      }
-
-      .book .bloc.right {
-        margin-right: 120px;
       }
     }
   </style>
