@@ -101,6 +101,18 @@
       transform: scale(1.05);
     }
 
+    /* --- Animation d'apparition --- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* --- Présentation --- */
     .presentation-container {
       display: flex;
@@ -214,6 +226,7 @@
       margin: 10px 0;
     }
 
+    /* --- Grille Vidéos --- */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -229,6 +242,12 @@
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       max-width: 400px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .video-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00eaff, 0 0 35px rgba(0,234,255,0.5);
     }
 
     .video-item iframe {
@@ -236,6 +255,11 @@
       height: 230px;
       border-radius: 10px;
       border: none;
+      transition: transform 0.4s ease;
+    }
+
+    .video-item:hover iframe {
+      transform: scale(1.03);
     }
 
     .video-item h3 {
@@ -272,10 +296,9 @@
   </header>
 
   <main>
+    <h2 class="section-title fade-in">Présentation</h2>
 
-    <!-- Présentation -->
-    <h2 class="section-title">Présentation</h2>
-    <div class="presentation-container">
+    <div class="presentation-container fade-in">
       <div class="photo-container">
         <img src="photo.jpg" alt="Photo de Vivian">
       </div>
@@ -289,8 +312,7 @@
       </section>
     </div>
 
-    <!-- Compétences sans titre -->
-    <section class="competences">
+    <section class="competences fade-in">
       <div class="intro">
         <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
         <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
@@ -303,29 +325,28 @@
       </div>
     </section>
 
-    <!-- Book -->
-    <h2 class="section-title">Book</h2>
+    <h2 class="section-title fade-in">Book</h2>
+
     <section class="book">
-      <div class="bloc left">
+      <div class="bloc left fade-in">
         <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.</p>
         <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
       </div>
 
-      <div class="bloc right">
+      <div class="bloc right fade-in">
         <p>Nos services incluent :</p>
         <p>Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.</p>
         <p>Réalisation de montages longs (voyages, événements, mariages) pour raconter vos histoires avec émotion.</p>
         <p>Intégration d’éléments visuels et sonores (textes animés, effets spéciaux simples, sound design, colorimétrie) pour un rendu soigné et unique.</p>
       </div>
 
-      <div class="bloc left">
+      <div class="bloc left fade-in">
         <p>Notre mission :</p>
         <p>Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
         <p>Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.</p>
       </div>
 
-      <!-- Vidéos -->
-      <div class="video-grid">
+      <div class="video-grid fade-in">
         <div class="video-item">
           <h3>Showreel de juin 2025</h3>
           <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
@@ -352,9 +373,25 @@
       </div>
     </section>
 
-    <!-- Bouton -->
-    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
+    <a href="mailto:studio.alchemy85@gmail.com" class="button fade-in">Contacte-moi ici</a>
   </main>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 
 </body>
 </html>
