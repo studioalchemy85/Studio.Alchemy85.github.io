@@ -66,13 +66,6 @@
       text-shadow: 0 0 10px #00eaff;
     }
 
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
     .section-title {
       width: 100%;
       text-align: center;
@@ -82,33 +75,71 @@
       text-shadow: 0 0 10px #00eaff;
     }
 
-    /* Présentation */
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+
+    a.button {
+      display: block;
+      margin: 20px auto 0 auto;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      color: #0f0f0f;
+      background-color: #00eaff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+      width: fit-content;
+    }
+
+    a.button:hover {
+      background-color: #00b7cc;
+      transform: scale(1.05);
+    }
+
+    /* --- Présentation --- */
     .presentation-container {
       display: flex;
+      flex-direction: row;
       align-items: center;
-      gap: 25px;
-      max-width: 900px;
+      gap: 20px;
+      max-width: 800px;
       width: 100%;
-      margin: 20px auto;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: nowrap;
+      margin-left: 20px;
     }
 
     .photo-container {
-      width: 160px;
-      height: 160px;
+      width: 150px;
+      height: 150px;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+      margin-left: -20px;
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .presentation .intro {
       background-color: rgba(0, 0, 0, 0.6);
-      padding: 25px 35px;
+      padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       flex: 1;
-      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .presentation .intro p {
@@ -116,16 +147,18 @@
       text-align: left;
     }
 
-    /* Compétences */
+    /* --- Compétences --- */
     .competences {
-      max-width: 900px;
+      max-width: 600px;
       width: 100%;
-      margin: 40px auto;
+      margin-top: 40px;
+      margin-left: auto;
+      margin-right: 20px;
     }
 
     .competences .intro {
       background-color: rgba(0, 0, 0, 0.6);
-      padding: 25px 35px;
+      padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
@@ -158,41 +191,30 @@
       color: #00eaff;
     }
 
-    /* Book */
+    /* --- Book --- */
     .book {
       width: 100%;
-      max-width: 1100px;
-      margin: 60px auto;
+      margin-top: 60px;
     }
 
     .book .bloc {
+      max-width: 800px;
       background-color: rgba(0, 0, 0, 0.6);
-      padding: 25px 35px;
+      padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      margin: 30px 40px;
-      max-width: 850px;
+      margin-bottom: 30px;
     }
 
-    /* Alignement spécifique des blocs */
-    .book .bloc:nth-child(2) { /* bloc à droite */
-      margin-left: auto;
-      margin-right: 40px;
-      text-align: right;
-    }
+    .book .bloc.left { margin-left: 20px; }
+    .book .bloc.right { margin-left: auto; margin-right: 20px; }
 
-    .book .bloc:nth-child(3), .book .bloc:nth-child(1) { /* blocs à gauche */
-      margin-left: 40px;
-      margin-right: auto;
+    .book p {
       text-align: left;
-    }
-
-    .book .bloc p {
       margin: 10px 0;
-      line-height: 1.6;
     }
 
-    /* Vidéos */
+    /* --- Grille Vidéos --- */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -211,11 +233,21 @@
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
+    .video-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00eaff, 0 0 35px rgba(0,234,255,0.5);
+    }
+
     .video-item iframe {
       width: 100%;
-      height: 200px;
+      height: 230px;
       border-radius: 10px;
       border: none;
+      transition: transform 0.4s ease;
+    }
+
+    .video-item:hover iframe {
+      transform: scale(1.03);
     }
 
     .video-item h3 {
@@ -230,15 +262,6 @@
     }
 
     @media (max-width: 900px) {
-      .book .bloc {
-        margin: 20px;
-      }
-      .book .bloc:nth-child(2),
-      .book .bloc:nth-child(3),
-      .book .bloc:nth-child(1) {
-        margin: 20px;
-        text-align: left;
-      }
       .video-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -262,6 +285,7 @@
 
   <main>
 
+    <!-- Présentation -->
     <h2 class="section-title">Présentation</h2>
     <div class="presentation-container">
       <div class="photo-container">
@@ -277,11 +301,11 @@
       </section>
     </div>
 
+    <!-- Compétences -->
     <section class="competences">
       <div class="intro">
         <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
         <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
-
         <div class="skills">
           <div><span class="tiret">-</span> <span class="icon">🎬</span> Montage (DaVinci Resolve)</div>
           <div><span class="tiret">-</span> <span class="icon">✨</span> Textes animés & effets visuels</div>
@@ -291,56 +315,58 @@
       </div>
     </section>
 
+    <!-- Book -->
+    <h2 class="section-title">Book</h2>
     <section class="book">
-      <h2 class="section-title">Book</h2>
-
-      <div class="bloc">
+      <div class="bloc left">
         <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.</p>
         <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
       </div>
 
-      <div class="bloc">
-        <p><strong>Nos services incluent :</strong></p>
+      <div class="bloc right">
+        <p>Nos services incluent :</p>
         <p>Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.</p>
         <p>Réalisation de montages longs (voyages, événements, mariages) pour raconter vos histoires avec émotion.</p>
         <p>Intégration d’éléments visuels et sonores (textes animés, effets spéciaux simples, sound design, colorimétrie) pour un rendu soigné et unique.</p>
       </div>
 
-      <div class="bloc">
-        <p><strong>Notre mission :</strong></p>
+      <div class="bloc left">
+        <p>Notre mission :</p>
         <p>Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
         <p>Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.</p>
       </div>
 
+      <!-- Vidéos -->
       <div class="video-grid">
         <div class="video-item">
-          <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
           <h3>Showreel de juin 2025</h3>
-          <p>Une vidéo au format horizontal avec musique de fond, lettrage + effet d'apparition et de disparition, transitions stylisées, colorimétrie ainsi que plusieurs effets vidéo et sonores.</p>
+          <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
+          <p>Une vidéo au format horizontal avec musique de fond, lettrage + effet d'apparition et disparition, transitions stylisées et rythmées, colorimétrie et plusieurs effets vidéo et sonores.</p>
         </div>
 
         <div class="video-item">
+          <h3>Vidéo de voyage - novembre 2024</h3>
           <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
-          <h3>Vidéo de voyage montée en novembre 2024</h3>
-          <p>Une vidéo verticale retraçant une journée de balade à La Rochelle avec musique de fond, lettrage et transitions nettes et rythmées.</p>
+          <p>Une vidéo au format vertical retraçant une journée de balade à La Rochelle avec musique de fond, lettrage et transitions nettes et rythmées.</p>
         </div>
 
         <div class="video-item">
+          <h3>Edit d’un personnage roleplay - août 2025</h3>
           <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
-          <h3>Edit d’un personnage roleplay d’août 2025</h3>
-          <p>Une vidéo au format vertical mettant en avant un personnage roleplay avec musique de fond et transitions stylisées rythmées.</p>
+          <p>Une vidéo au format vertical mettant en avant un personnage roleplay avec musique de fond et transitions stylisées et rythmées.</p>
         </div>
 
         <div class="video-item">
-          <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
           <h3>Un épisode de let’s play tiré d’un live</h3>
-          <p>Une vidéo horizontale avec une intro et une outro, ainsi qu’une voix off en début et fin de vidéo.</p>
+          <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
+          <p>Une vidéo au format horizontal avec une intro et une outro ainsi qu’une voix off en début et fin de vidéo.</p>
         </div>
       </div>
     </section>
 
     <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
-
   </main>
+
 </body>
 </html>
+
