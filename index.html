@@ -80,7 +80,6 @@
       flex-direction: column;
       align-items: flex-start;
       padding: 40px 20px;
-      padding-bottom: 150px; /* Espace en bas pour le texte livraison */
     }
 
     a.button {
@@ -292,7 +291,7 @@
     .delivery-time {
       background-color: rgba(0,0,0,0.6);
       padding: 15px 20px;
-      margin-top: 20px;
+      margin-top: 40px;
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.5);
       text-align: center;
@@ -340,6 +339,13 @@
       .competences { margin-right: 120px; }
       .book .bloc.left { margin-left: 120px; }
       .book .bloc.right { margin-right: 120px; }
+    }
+
+    /* --- Espace supplémentaire en bas --- */
+    main::after {
+      content:"";
+      display:block;
+      height:200px;
     }
   </style>
 </head>
@@ -481,7 +487,7 @@
 
       <!-- Temps de livraison -->
       <div class="delivery-time fade-element">
-        ⏱️ Temps de livraison : chaques projets est spécial, leurs livraison peuvent varier de 24h à 1-2 semaines.
+        ⏱️ Temps de livraison : chaque projet est spécial, leur livraison peut varier de 24h à 1-2 semaines.
       </div>
     </section>
 
