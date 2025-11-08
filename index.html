@@ -217,7 +217,7 @@
     /* --- Grille Vidéos --- */
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       justify-items: center;
       margin-top: 40px;
@@ -262,15 +262,11 @@
     }
 
     /* --- Tarifs --- */
-    .tarifs {
-      width: 100%;
-      margin-top: 60px;
-    }
-
-    .tarif-grid {
+    .tarifs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      margin-top: 30px;
     }
 
     .tarif-item {
@@ -280,47 +276,42 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     }
 
+    .tarif-item h3 {
+      color: #00eaff;
+      margin-bottom: 15px;
+    }
+
     .tarif-item p {
       margin: 5px 0;
     }
 
-    .tarif-title {
-      font-weight: bold;
-      color: #00eaff;
-      margin-bottom: 10px;
-    }
-
-    .delai-info {
-      text-align: center;
-      margin-top: 20px;
-      font-style: italic;
-      color: #ddd;
-    }
-
-    /* Responsive */
     @media (max-width: 900px) {
-      .video-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .tarif-grid {
+      .video-grid, .tarifs-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 600px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-      .tarif-grid {
+      .video-grid, .tarifs-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    /* Ajustement marges sur grand écran */
+    /* --- Fade In / Out --- */
+    .fade-element {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-element.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- Ajustement marges sur grand écran --- */
     @media (min-width: 1200px) {
-      main {
-        padding: 60px 120px;
-      }
+      main { padding: 60px 120px; }
       .presentation-container { margin-left: 120px; }
       .competences { margin-right: 120px; }
       .book .bloc.left { margin-left: 120px; }
@@ -330,7 +321,7 @@
 </head>
 <body>
 
-  <header>
+  <header class="fade-element">
     <div class="logo-container">
       <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy" class="logo">
     </div>
@@ -340,8 +331,8 @@
   <main>
 
     <!-- Présentation -->
-    <h2 class="section-title">Présentation</h2>
-    <div class="presentation-container">
+    <h2 class="section-title fade-element">Présentation</h2>
+    <div class="presentation-container fade-element">
       <div class="photo-container">
         <img src="photo.jpg" alt="Photo de Vivian">
       </div>
@@ -356,7 +347,7 @@
     </div>
 
     <!-- Compétences -->
-    <section class="competences">
+    <section class="competences fade-element">
       <div class="intro">
         <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
         <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
@@ -370,8 +361,8 @@
     </section>
 
     <!-- Book -->
-    <h2 class="section-title">Book</h2>
-    <section class="book">
+    <h2 class="section-title fade-element">Book</h2>
+    <section class="book fade-element">
       <div class="bloc left">
         <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.</p>
         <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
@@ -391,7 +382,7 @@
       </div>
 
       <!-- Vidéos -->
-      <div class="video-grid">
+      <div class="video-grid fade-element">
         <div class="video-item">
           <h3>Showreel de juin 2025</h3>
           <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
@@ -419,48 +410,76 @@
     </section>
 
     <!-- Tarifs -->
-    <section class="tarifs">
-      <h2 class="section-title">Tarifs</h2>
-      <div class="tarif-grid">
+    <h2 class="section-title fade-element">Tarifs</h2>
+    <section class="tarifs fade-element">
+      <div class="tarifs-grid">
+        <!-- Ligne 1 -->
         <div class="tarif-item">
-          <p class="tarif-title">📱 TikTok / Shorts (15 à 120s)</p>
-          <p>🔹 Basic – 20 € : Découpe, rythme, musique de fond. (1 révision comprise)</p>
-          <p>🔹 Standard – 30 € : Sound FX, zoom dynamique, transitions stylisées. (2 révisions comprises)</p>
-          <p>🔹 Premium – 40 € : Texte animé, VFX simples, colorimétrie, sous-titres. (3 révisions comprises)</p>
+          <h3>📱 TikTok / Shorts (15 à 120s)</h3>
+          <p>🔹 Basic – 20 € : Découpe, rythme, musique de fond. 1 révision comprise.</p>
+          <p>🔹 Standard – 30 € : Sound FX, zoom dynamique, transitions stylisées. 2 révisions comprises.</p>
+          <p>🔹 Premium – 40 € : Texte animé, VFX simples, colorimétrie, sous-titres. 3 révisions comprises.</p>
         </div>
+
         <div class="tarif-item">
-          <p class="tarif-title">📹 Vidéo de voyage / vlog / YouTube</p>
-          <p>🔹 Basic (2-5 min) – 60 € : Montage simple, effets dynamiques, musique libre. (1 révision comprise)</p>
-          <p>🔹 Standard (6-10 min) – 100 € : Narration, transitions créatives, titrage, sound FX. (2 révisions comprises)</p>
-          <p>🔹 Premium (10-20 min) – 150 € : Image de référence, texte animé, VFX. (3 révisions comprises)</p>
-          <p>🔹 Long format (40 min) – 200 € : Montage avancé, rythme adapté, titrage, sound FX, colorimétrie. (5 révisions)</p>
+          <h3>📹 Vidéo de voyage / vlog / YouTube</h3>
+          <p>🔹 Basic (2-5 min) – 60 € : Montage simple, effets dynamiques, musique libre. 1 révision comprise.</p>
+          <p>🔹 Standard (6-10 min) – 100 € : Narration, transitions créatives, titrage, sound FX. 2 révisions comprises.</p>
+          <p>🔹 Premium (10-20 min) – 150 € : Image de référence, texte animé, VFX. 3 révisions comprises.</p>
+          <p>🔹 Long format (40 min) – 200 € : Montage avancé pour vidéos longues, rythme adapté, titrage, sound FX, colorimétrie. 5 Révisions (7 jours après livraison).</p>
         </div>
+
         <div class="tarif-item">
-          <p class="tarif-title">💍 Vidéo de mariage</p>
-          <p>🔹 Highlight (3-5 min) – 150 € à 250 € : Sélection des meilleurs moments, musique adaptée, montage rythmé. (5 révisions comprises)</p>
-          <p>🔹 Film complet (10-30 min) – 300 € à 500 € : Histoire complète, transitions créatives, texte animé, VFX. (Révisions illimitées 7j après livraison)</p>
+          <h3>💍 Vidéo de mariage</h3>
+          <p>🔹 Highlight (3-5 min) – 150 € à 250 € : Sélection des meilleurs moments, musique adaptée, montage rythmé. 5 révisions comprises.</p>
+          <p>🔹 Film complet (10-30 min) – 300 € à 500 € : Histoire complète du mariage, transitions créatives, texte animé, VFX. Révisions illimitées (7 jours après livraison).</p>
         </div>
+
+        <!-- Ligne 2 -->
         <div class="tarif-item">
-          <p class="tarif-title">📦 Forfaits créateurs</p>
-          <p>🔹 Pack Starter – 20 % : 3 vidéos Standard/Premium. Révisions selon pack.</p>
-          <p>🔹 Pack Creator – 25 % : 3 vidéos Standard/Premium/Long Format (1 par semaine). Révisions selon pack.</p>
+          <h3>📦 Forfaits créateurs</h3>
+          <p>🔹 Pack Starter – 20% : 3 vidéos au format Standard/Premium. Révisions en fonction du type de pack.</p>
+          <p>🔹 Pack Creator – 25% : 3 vidéos au format Standard/Premium/Long Format (1 par semaine). Révisions en fonction du type de pack.</p>
         </div>
+
         <div class="tarif-item">
-          <p class="tarif-title">🔁 Révisions hors forfait</p>
+          <h3>🔁 Révisions hors forfait</h3>
           <p>TikTok / Shorts : +10 € par révision supplémentaire</p>
           <p>YouTube / Vlog / Voyage : +15 € par révision supplémentaire</p>
           <p>Vidéo de mariage : +15 € par révision supplémentaire</p>
         </div>
+
         <div class="tarif-item">
-          <p class="tarif-title">🎉 Offre spéciale</p>
-          <p>Pour tout nouveau client : -25 % sur le premier projet ✨</p>
+          <h3>🎉 Offre spéciale</h3>
+          <p>Pour tout nouveau client : -25 % sur le premier projet* ✨</p>
+          <p>⏱️ Temps de livraison : selon le travail demandé, cela peut varier de 24h à 1-2 semaines.</p>
         </div>
       </div>
-      <p class="delai-info">Le temps de livraison dépend du travail à effectuer et peut varier de 24h à 1 ou 2 semaines.</p>
     </section>
 
-    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
+    <a href="mailto:studio.alchemy85@gmail.com" class="button fade-element">Contacte-moi ici</a>
   </main>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-element');
+
+    const appearOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      faders.forEach(fader => {
+        const top = fader.getBoundingClientRect().top;
+
+        if (top < triggerBottom) {
+          fader.classList.add('visible');
+        } else {
+          fader.classList.remove('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', appearOnScroll);
+    window.addEventListener('load', appearOnScroll);
+  </script>
 
 </body>
 </html>
