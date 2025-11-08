@@ -218,9 +218,13 @@
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      justify-items: center;
+      gap: 10px; /* réduit l'espacement entre vidéos */
+      justify-content: center; /* centre la grille */
       margin-top: 40px;
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .video-item {
@@ -273,10 +277,10 @@
       }
     }
 
-    /* --- Ajustement marges sur grand écran (plus centré) --- */
+    /* --- Ajustement marges sur grand écran --- */
     @media (min-width: 1200px) {
       main {
-        padding: 60px 120px; /* marge à gauche/droite plus grande */
+        padding: 60px 120px;
       }
 
       .presentation-container {
