@@ -84,7 +84,7 @@
 
     a.button {
       display: block;
-      margin: 20px auto 0 auto;
+      margin: 20px 20px 0 auto; /* pousser à droite */
       padding: 12px 25px;
       font-size: 1.1rem;
       color: #0f0f0f;
@@ -96,6 +96,7 @@
       width: fit-content;
       position: sticky;
       bottom: 20px;
+      right: 20px;
       z-index: 100;
     }
 
@@ -291,7 +292,8 @@
     .delivery-time {
       background-color: rgba(0,0,0,0.6);
       padding: 15px 20px;
-      margin-top: 40px;
+      margin-top: 60px; /* plus d’espace pour voir le texte */
+      margin-bottom: 150px; /* encore plus d’espace en bas */
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.5);
       text-align: center;
@@ -339,13 +341,6 @@
       .competences { margin-right: 120px; }
       .book .bloc.left { margin-left: 120px; }
       .book .bloc.right { margin-right: 120px; }
-    }
-
-    /* --- Espace supplémentaire en bas --- */
-    main::after {
-      content:"";
-      display:block;
-      height:200px;
     }
   </style>
 </head>
@@ -460,58 +455,37 @@
         </div>
 
         <div class="tarif-item fade-element">
-          <h3>💍 Vidéo de mariage</h3>
-          <p>🔹 Highlight (3-5 min) – 150 € à 250 € : Sélection des meilleurs moments, musique adaptée, montage rythmé. 5 révisions comprises.</p>
-          <p>🔹 Film complet (10-30 min) – 300 € à 500 € : Histoire complète du mariage, transitions créatives, texte animé, VFX. Révisions illimitées (7 jours après livraison).</p>
+          <h3>🎥 Montage personnalisé</h3>
+          <p>🔹 Projet sur mesure : devis selon le type et la durée de la vidéo.</p>
+          <p>🔹 Livraison rapide possible (2-5 jours) avec supplément.</p>
         </div>
-
-        <!-- Ligne 2 -->
-        <div class="tarif-item fade-element">
-          <h3>📦 Forfaits créateurs</h3>
-          <p>🔹 Pack Starter – 20% : 3 vidéos au format Standard/Premium. Révisions en fonction du type de pack.</p>
-          <p>🔹 Pack Creator – 25% : 3 vidéos au format Standard/Premium/Long Format (1 par semaine). Révisions en fonction du type de pack.</p>
-        </div>
-
-        <div class="tarif-item fade-element">
-          <h3>🔁 Révisions hors forfait</h3>
-          <p>TikTok / Shorts : +10 € par révision supplémentaire</p>
-          <p>YouTube / Vlog / Voyage : +15 € par révision supplémentaire</p>
-          <p>Vidéo de mariage : +15 € par révision supplémentaire</p>
-        </div>
-
-        <div class="tarif-item fade-element">
-          <h3>🎉 Offre spéciale</h3>
-          <p>Pour tout nouveau client : -25 % sur le premier projet* ✨</p>
-        </div>
-      </div>
-
-      <!-- Temps de livraison -->
-      <div class="delivery-time fade-element">
-        ⏱️ Temps de livraison : chaque projet est spécial, leur livraison peut varier de 24h à 1-2 semaines.
       </div>
     </section>
 
-    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
+    <!-- Temps de livraison -->
+    <div class="delivery-time fade-element">
+      ⏱️ Temps de livraison moyen : 2 à 7 jours selon la complexité et le format de la vidéo.
+    </div>
+
+    <!-- Bouton Contact -->
+    <a href="#contact" class="button">Contacte-moi ici</a>
+
   </main>
 
   <script>
-    const faders = document.querySelectorAll('.fade-element');
-
-    const appearOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-
-      faders.forEach(fader => {
-        const top = fader.getBoundingClientRect().top;
-        if (top < triggerBottom) {
-          fader.classList.add('visible');
-        } else {
-          fader.classList.remove('visible');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', appearOnScroll);
-    window.addEventListener('load', appearOnScroll);
+    // Fade-in automatique
+    document.addEventListener("DOMContentLoaded", function() {
+      const faders = document.querySelectorAll('.fade-element');
+      const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+      const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          appearOnScroll.unobserve(entry.target);
+        });
+      }, appearOptions);
+      faders.forEach(fader => appearOnScroll.observe(fader));
+    });
   </script>
 
 </body>
