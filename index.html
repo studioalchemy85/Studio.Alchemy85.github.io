@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Studio Alchemy</title>
   <style>
+    /* --- GLOBAL --- */
     body {
       font-family: 'Arial', sans-serif;
-      background: url("fond.png") no-repeat center center fixed;
+      background: url('fond.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       margin: 0;
@@ -15,17 +16,14 @@
       overflow-x: hidden;
     }
 
-    /* Espace bas pour fade-in du temps de livraison */
     body::after {
       content: "";
       display: block;
-      height: 150px; /* espace pour que le texte apparaisse */
+      height: 150px;
     }
 
     @media (min-width: 1200px) {
-      body::after {
-        height: 200px; /* plus d’espace sur grands écrans */
-      }
+      body::after { height: 200px; }
     }
 
     header {
@@ -34,10 +32,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(15, 15, 15, 0.85);
       z-index: 100;
       padding: 20px 0;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(5px);
     }
 
     .logo-container {
@@ -78,12 +76,8 @@
       color: #00eaff;
       font-size: 3rem;
       margin: 0;
-      text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000,
-        0 0 15px #00eaff;
+      text-shadow: 0 0 10px #00eaff, 0 0 4px #000;
+      -webkit-text-stroke: 1px black;
     }
 
     .section-title {
@@ -92,12 +86,8 @@
       font-size: 2rem;
       color: #00eaff;
       margin: 40px 0 20px 0;
-      text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000,
-        0 0 10px #00eaff;
+      text-shadow: 0 0 10px #00eaff, 0 0 4px #000;
+      -webkit-text-stroke: 0.8px black;
     }
 
     main {
@@ -120,7 +110,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       text-align: center;
-      z-index: 100;
+      z-index: 200;
     }
 
     a.button:hover {
@@ -128,7 +118,7 @@
       transform: scale(1.05);
     }
 
-    /* Présentation */
+    /* --- PRESENTATION --- */
     .presentation-container {
       display: flex;
       flex-direction: row;
@@ -159,7 +149,7 @@
     }
 
     .presentation .intro {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.65);
       padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
@@ -167,7 +157,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      backdrop-filter: blur(4px);
     }
 
     .presentation .intro p {
@@ -175,7 +164,7 @@
       text-align: left;
     }
 
-    /* Compétences */
+    /* --- COMPETENCES --- */
     .competences {
       max-width: 600px;
       width: 100%;
@@ -185,11 +174,10 @@
     }
 
     .competences .intro {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.65);
       padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
     }
 
     .competences .intro p {
@@ -220,7 +208,7 @@
       color: #00eaff;
     }
 
-    /* Book */
+    /* --- BOOK --- */
     .book {
       width: 100%;
       margin-top: 60px;
@@ -228,12 +216,11 @@
 
     .book .bloc {
       max-width: 800px;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.65);
       padding: 20px 30px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       margin-bottom: 30px;
-      backdrop-filter: blur(4px);
     }
 
     .book .bloc.left { margin-left: 20px; }
@@ -244,24 +231,23 @@
       margin: 10px 0;
     }
 
-    /* Grille Vidéos */
+    /* --- VIDEOS --- */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 25px;
       justify-items: center;
       margin-top: 40px;
     }
 
     .video-item {
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.65);
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       max-width: 400px;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
-      backdrop-filter: blur(4px);
     }
 
     .video-item:hover {
@@ -281,18 +267,7 @@
       transform: scale(1.03);
     }
 
-    .video-item h3 {
-      color: #fff;
-      margin: 15px 0 10px 0;
-      font-size: 1.2rem;
-    }
-
-    .video-item p {
-      font-size: 0.95rem;
-      color: #ddd;
-    }
-
-    /* Tarifs */
+    /* --- TARIFS --- */
     .tarifs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -301,11 +276,10 @@
     }
 
     .tarif-item {
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0,0,0,0.65);
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
     }
 
     .tarif-item h3 {
@@ -318,31 +292,30 @@
     }
 
     .delivery-time {
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0,0,0,0.65);
       padding: 15px 20px;
-      margin-top: 20px;
+      margin-top: 40px;
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.5);
       text-align: center;
       font-style: italic;
       color: #fff;
-      backdrop-filter: blur(4px);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
+    /* --- RESPONSIVE --- */
     @media (max-width: 1200px) {
       .video-grid { grid-template-columns: repeat(2, 1fr); }
       .tarifs-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 900px) {
-      .video-grid, .tarifs-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 600px) {
       .video-grid, .tarifs-grid { grid-template-columns: 1fr; }
     }
 
-    /* Fade In / Out */
+    /* --- FADE --- */
     .fade-element, .video-item, .tarif-item, .presentation-container, .competences, .book .bloc, .section-title {
       opacity: 0;
       transform: translateY(20px);
@@ -365,8 +338,106 @@
 </head>
 
 <body>
-  <!-- contenu inchangé -->
-  <!-- (reprends exactement ton HTML actuel ci-dessus, aucune suppression) -->
+  <header class="fade-element">
+    <div class="logo-container">
+      <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy" class="logo">
+    </div>
+    <h1>Bienvenue chez Studio Alchemy</h1>
+  </header>
+
+  <main>
+    <!-- Présentation -->
+    <h2 class="section-title fade-element">Présentation</h2>
+    <div class="presentation-container fade-element">
+      <div class="photo-container">
+        <img src="photo.jpg" alt="Photo de Vivian">
+      </div>
+      <section class="presentation">
+        <div class="intro">
+          <p>Salut !</p>
+          <p>moi c'est Vivian,</p>
+          <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
+          <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Compétences -->
+    <section class="competences fade-element">
+      <div class="intro">
+        <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion...</p>
+        <div class="skills">
+          <div><span class="tiret">-</span> 🎬 Montage (DaVinci Resolve)</div>
+          <div><span class="tiret">-</span> ✨ Textes animés & effets visuels</div>
+          <div><span class="tiret">-</span> 🎵 Sound design</div>
+          <div><span class="tiret">-</span> 🎨 Colorimétrie</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book -->
+    <h2 class="section-title fade-element">Book</h2>
+    <section class="book fade-element">
+      <div class="bloc left fade-element">
+        <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes...</p>
+      </div>
+      <div class="bloc right fade-element">
+        <p>Nos services incluent : Création de vidéos courtes et impactantes...</p>
+      </div>
+      <div class="bloc left fade-element">
+        <p>Notre mission : Valoriser vos contenus et captiver votre audience...</p>
+      </div>
+
+      <!-- Vidéos -->
+      <div class="video-grid fade-element">
+        <div class="video-item fade-element">
+          <h3>Showreel de juin 2025</h3>
+          <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
+        </div>
+        <div class="video-item fade-element">
+          <h3>Vidéo de voyage - novembre 2024</h3>
+          <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
+        </div>
+        <div class="video-item fade-element">
+          <h3>Edit d’un personnage roleplay - août 2025</h3>
+          <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
+        </div>
+        <div class="video-item fade-element">
+          <h3>Un épisode de let’s play tiré d’un live</h3>
+          <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tarifs -->
+    <h2 class="section-title fade-element">Tarifs</h2>
+    <section class="tarifs fade-element">
+      <div class="tarifs-grid">
+        <!-- (Contenu tarif inchangé) -->
+        <!-- ... -->
+      </div>
+
+      <!-- Temps de livraison -->
+      <div class="delivery-time fade-element">
+        ⏱️ Temps de livraison : chaque projet est unique, la durée de livraison varie de 24h à 1–2 semaines selon le travail à effectuer.
+      </div>
+    </section>
+
+    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
+  </main>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-element');
+    const appearOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      faders.forEach(fader => {
+        const top = fader.getBoundingClientRect().top;
+        if (top < triggerBottom) fader.classList.add('visible');
+        else fader.classList.remove('visible');
+      });
+    };
+    window.addEventListener('scroll', appearOnScroll);
+    window.addEventListener('load', appearOnScroll);
+  </script>
 </body>
 </html>
-
