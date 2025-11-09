@@ -9,7 +9,7 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       color: white;
-      background: linear-gradient(135deg, rgba(15,15,15,0.4), rgba(26,26,26,0.4)),
+      background: linear-gradient(135deg, rgba(15,15,15,0.5), rgba(26,26,26,0.5)),
                   url('fond.png') no-repeat center center fixed;
       background-size: cover;
       overflow-x: hidden;
@@ -18,8 +18,14 @@
     header {
       text-align: center;
       padding: 60px 40px 20px;
-      font-size: 36px;
+      font-size: 38px;
       font-weight: bold;
+    }
+
+    .logo {
+      display: block;
+      margin: 20px auto 10px;
+      width: 120px;
     }
 
     section {
@@ -36,34 +42,55 @@
       transform: translateY(0);
     }
 
+    .text-block {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 25px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .left {
+      text-align: left;
+    }
+
+    .right {
+      text-align: right;
+    }
+
     h2 {
       text-align: center;
       font-size: 28px;
+      margin-top: 60px;
       margin-bottom: 30px;
     }
 
     p {
       font-size: 18px;
       line-height: 1.6;
-      text-align: justify;
     }
 
+    /* --- Section vidéos --- */
     .videos-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 15px;
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     .video-card {
-      flex: 1 1 calc(25% - 10px);
+      flex: 1 1 calc(25% - 15px);
       background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      padding-bottom: 15px;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .video-card:hover {
+      transform: scale(1.03);
     }
 
     .video-card iframe {
@@ -80,9 +107,10 @@
 
     .video-card p {
       font-size: 14px;
-      padding: 0 10px;
+      padding: 0 10px 10px;
     }
 
+    /* --- Section tarifs --- */
     .tarifs {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -111,21 +139,26 @@
 
     .delivery-time {
       text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 15px;
       font-size: 16px;
-      margin-top: 40px;
+      margin: 40px auto 60px;
+      max-width: 600px;
       color: #f0f0f0;
       opacity: 0.9;
     }
 
+    /* --- Bouton contact --- */
     .contact-button {
       position: fixed;
-      top: 20px;
+      bottom: 20px;
       right: 20px;
       background-color: #ff4b2b;
       color: white;
       border: none;
       border-radius: 25px;
-      padding: 12px 25px;
+      padding: 14px 28px;
       font-size: 16px;
       cursor: pointer;
       transition: background 0.3s;
@@ -136,62 +169,79 @@
       background-color: #ff3a1a;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      .video-card {
+        flex: 1 1 calc(50% - 10px);
+      }
+    }
+
+    @media (max-width: 600px) {
       .video-card {
         flex: 1 1 100%;
+      }
+      .right {
+        text-align: left;
       }
     }
   </style>
 </head>
 <body>
 
-  <button class="contact-button">Contactez-moi</button>
+  <img src="logo.png" alt="Logo Studio Alchemy" class="logo">
+  <header>Bienvenue chez Studio Alchemy</header>
 
-  <header>Présentation</header>
-
+  <!-- Présentation -->
   <section class="fade-in">
-    <p>Salut ! Moi c'est Vivian,</p>
-    <p>Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
-    <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque.</p>
+    <div class="text-block left">
+      <p>Salut ! Moi c'est Vivian,<br>
+      Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
 
-    <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion. Mon objectif est de transformer chaque idée en une vidéo captivante, que ce soit pour divertir, inspirer ou marquer un événement unique.</p>
+      <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque.</p>
+    </div>
 
-    <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie, afin de donner à chaque projet une identité visuelle forte et impactante.</p>
+    <div class="text-block right">
+      <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion.</p>
+      <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie.</p>
+      <p>🎬 Montage (DaVinci Resolve)<br>
+         ✨ Textes animés & effets visuels<br>
+         🎵 Sound design<br>
+         🎨 Colorimétrie</p>
+    </div>
 
-    <p>🎬 Montage (DaVinci Resolve)<br>
-       ✨ Textes animés & effets visuels<br>
-       🎵 Sound design<br>
-       🎨 Colorimétrie</p>
+    <div class="text-block left">
+      <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.<br><br>
+      Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
 
-    <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.</p>
-    <p>Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
+      <p>Nos services incluent :<br>
+      - Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.<br>
+      - Réalisation de montages longs pour raconter vos histoires avec émotion.<br>
+      - Intégration d’éléments visuels et sonores pour un rendu soigné et unique.</p>
 
-    <p>Nos services incluent :</p>
-    <p>Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.<br>
-       Réalisation de montages longs (voyages, événements, mariages) pour raconter vos histoires avec émotion.<br>
-       Intégration d’éléments visuels et sonores (textes animés, effets spéciaux simples, sound design, colorimétrie) pour un rendu soigné et unique.</p>
+      <p><strong>Notre mission :</strong><br>
+      Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
+    </div>
+  </section>
 
-    <p>Notre mission :<br>
-       Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.<br>
-       Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.</p>
-
+  <!-- Book -->
+  <h2>Book</h2>
+  <section class="fade-in">
     <div class="videos-container">
       <div class="video-card">
         <iframe src="https://www.youtube.com/embed/saovOqehmKY"></iframe>
         <h3>Showreel de juin 2025</h3>
-        <p>Une vidéo au format horizontal avec musique de fond, lettrage, transitions stylisées, colorimétrie et effets vidéo/sonores.</p>
+        <p>Vidéo horizontale avec musique, lettrage, transitions stylisées, colorimétrie et effets.</p>
       </div>
 
       <div class="video-card">
         <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g"></iframe>
         <h3>Vidéo de voyage - Novembre 2024</h3>
-        <p>Vidéo verticale retraçant une journée à La Rochelle, avec musique de fond, lettrage et transitions rythmées.</p>
+        <p>Vidéo verticale retraçant une journée à La Rochelle, musique de fond et transitions nettes.</p>
       </div>
 
       <div class="video-card">
         <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw"></iframe>
         <h3>Edit RP – Août 2025</h3>
-        <p>Vidéo verticale mettant en avant un personnage roleplay, musique de fond et transitions dynamiques.</p>
+        <p>Vidéo verticale mettant en avant un personnage roleplay avec transitions dynamiques.</p>
       </div>
 
       <div class="video-card">
@@ -202,15 +252,15 @@
     </div>
   </section>
 
-  <header>Tarifs</header>
-
+  <!-- Tarifs -->
+  <h2>Tarifs</h2>
   <section class="fade-in">
     <div class="tarifs">
       <div class="tarif-card">
         <h3>📱 TikTok / Shorts (15 à 120s)</h3>
         <p><strong>Basic – 20 €</strong><br>Découpe, rythme, musique de fond. 1 révision comprise.</p>
-        <p><strong>Standard – 30 €</strong><br>Sound FX, zoom dynamique, transitions stylisées. 2 révisions comprises.</p>
-        <p><strong>Premium – 40 €</strong><br>Texte animé, VFX simples, colorimétrie, sous-titres. 3 révisions comprises.</p>
+        <p><strong>Standard – 30 €</strong><br>Sound FX, zoom dynamique, transitions stylisées. 2 révisions.</p>
+        <p><strong>Premium – 40 €</strong><br>Texte animé, VFX simples, colorimétrie, sous-titres. 3 révisions.</p>
       </div>
 
       <div class="tarif-card">
@@ -246,8 +296,12 @@
       </div>
     </div>
 
-    <p class="delivery-time">⏱️ Temps de livraison : chaque projet est unique, la durée de livraison varie de 24h à 1-2 semaines selon le travail à effectuer.</p>
+    <div class="delivery-time">
+      ⏱️ Temps de livraison : chaque projet est unique, la durée de livraison varie de 24h à 1–2 semaines selon le travail à effectuer.
+    </div>
   </section>
+
+  <button class="contact-button">Contactez-moi</button>
 
   <script>
     const fadeElements = document.querySelectorAll('.fade-in');
