@@ -1,319 +1,327 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Studio Alchemy</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: Arial, sans-serif;
       color: white;
-      background: linear-gradient(135deg, rgba(15,15,15,0.5), rgba(26,26,26,0.5)),
-                  url('fond.png') no-repeat center center fixed;
+      background-image: url('fond.png');
       background-size: cover;
-      overflow-x: hidden;
+      background-attachment: fixed;
+      background-position: center;
     }
 
     header {
       text-align: center;
-      padding: 60px 40px 20px;
-      font-size: 38px;
-      font-weight: bold;
+      padding: 60px 20px 20px;
     }
 
-    .logo {
-      display: block;
-      margin: 20px auto 10px;
+    header img {
       width: 120px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
     }
 
-    section {
-      padding: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .text-block {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      padding: 25px;
-      margin: 25px 40px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-
-    .left {
-      text-align: left;
-    }
-
-    .right {
-      text-align: right;
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
     }
 
     h2 {
       text-align: center;
-      font-size: 28px;
+      font-size: 2em;
       margin-top: 60px;
-      margin-bottom: 30px;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* --- Section vidéos --- */
-    .videos-container {
+    .presentation {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 15px;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .text-block {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      width: 70%;
+    }
+
+    .left {
+      align-self: flex-start;
+      text-align: left;
+    }
+
+    .right {
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    /* Section Book */
+    .book-section {
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      justify-items: center;
       margin-top: 30px;
     }
 
     .video-card {
-      flex: 1 1 calc(25% - 15px);
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .video-card:hover {
-      transform: scale(1.03);
-    }
-
-    .video-card iframe {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px;
+      border-radius: 15px;
       width: 100%;
-      height: 200px;
-      border: none;
+      max-width: 350px;
     }
 
     .video-card h3 {
-      color: #fff;
-      font-size: 18px;
-      margin: 10px 0;
+      color: white;
+      margin-bottom: 10px;
     }
 
-    .video-card p {
-      font-size: 14px;
-      padding: 0 10px 10px;
+    iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      border: none;
     }
 
-    /* --- Section tarifs --- */
+    /* Section Tarifs */
     .tarifs {
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .tarif-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .tarif-card {
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.7);
       padding: 25px;
+      border-radius: 15px;
       text-align: left;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
 
     .tarif-card h3 {
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-
-    .tarif-card p {
-      font-size: 15px;
-      line-height: 1.5;
-      margin: 5px 0;
-    }
-
-    .delivery-time {
       text-align: center;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 12px;
-      padding: 15px;
-      font-size: 16px;
-      margin: 40px auto 60px;
-      max-width: 600px;
-      color: #f0f0f0;
-      opacity: 0.9;
     }
 
-    /* --- Bouton contact --- */
+    .delivery-info {
+      margin: 60px auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 15px;
+      width: fit-content;
+      max-width: 90%;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* Bouton contact */
     .contact-button {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #ff4b2b;
+      bottom: 30px;
+      right: 30px;
+      background-color: #ff9800;
       color: white;
       border: none;
-      border-radius: 25px;
-      padding: 14px 28px;
+      padding: 15px 25px;
+      border-radius: 50px;
       font-size: 16px;
       cursor: pointer;
-      transition: background 0.3s;
-      z-index: 1000;
+      transition: 0.3s;
     }
-
     .contact-button:hover {
-      background-color: #ff3a1a;
+      background-color: #ffa733;
     }
 
-    @media (max-width: 900px) {
-      .video-card {
-        flex: 1 1 calc(50% - 10px);
+    @media (max-width: 1000px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tarif-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 600px) {
-      .video-card {
-        flex: 1 1 100%;
+    @media (max-width: 700px) {
+      .video-grid {
+        grid-template-columns: 1fr;
       }
-      .right {
-        text-align: left;
+      .tarif-grid {
+        grid-template-columns: 1fr;
+      }
+      .text-block {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
+
 <body>
+  <header class="fade-in">
+    <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy" />
+    <h1>Bienvenue chez Studio Alchemy</h1>
+  </header>
 
-  <img src="logo.png" alt="Logo Studio Alchemy" class="logo">
-  <header>Bienvenue chez Studio Alchemy</header>
-
-  <!-- Présentation -->
-  <section class="fade-in">
-    <div class="text-block left">
-      <p>Salut ! Moi c'est Vivian,<br>
-      Passionné par la création audiovisuelle, je suis streamer et monteur vidéo.</p>
-
-      <p>Mon approche : écouter vos besoins, comprendre votre univers et créer des vidéos sur-mesure qui reflètent votre histoire, votre personnalité ou celle de votre marque.</p>
+  <h2 class="fade-in">Présentation</h2>
+  <section class="presentation">
+    <div class="text-block left fade-in">
+      <p>
+        Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.<br><br>
+        Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.
+      </p>
     </div>
 
-    <div class="text-block right">
-      <p>Depuis mes débuts, je pratique le montage quotidiennement et j’ai développé un style axé sur le rythme, l’énergie et l’émotion.</p>
-      <p>Je travaille principalement sur DaVinci Resolve, avec une maîtrise des textes animés, effets visuels, sound design et colorimétrie.</p>
-      <p>🎬 Montage (DaVinci Resolve)<br>
-         ✨ Textes animés & effets visuels<br>
-         🎵 Sound design<br>
-         🎨 Colorimétrie</p>
+    <div class="text-block right fade-in">
+      <p>
+        Nos services incluent :<br><br>
+        Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.<br><br>
+        Réalisation de montages longs pour raconter vos histoires avec émotion.<br><br>
+        Intégration d’éléments visuels et sonores pour un rendu soigné et unique.
+      </p>
     </div>
 
-    <div class="text-block left">
-      <p>Chez Studio Alchemy, nous transformons vos idées en vidéos uniques et percutantes.<br><br>
-      Spécialisés dans le montage vidéo pour réseaux sociaux (TikTok, Reels, YouTube) ainsi que dans les projets créatifs et événementiels (voyages, mariages, gaming), nous mettons en avant votre univers avec un style dynamique, moderne et professionnel.</p>
-
-      <p>Nos services incluent :<br>
-      - Création de vidéos courtes et impactantes pour booster votre visibilité en ligne.<br>
-      - Réalisation de montages longs pour raconter vos histoires avec émotion.<br>
-      - Intégration d’éléments visuels et sonores pour un rendu soigné et unique.</p>
-
-      <p><strong>Notre mission :</strong><br>
-      Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.</p>
+    <div class="text-block left fade-in">
+      <p>
+        Notre mission :<br><br>
+        Valoriser vos contenus et captiver votre audience, que vous soyez créateur de contenu, particulier ou entreprise.<br><br>
+        Confiez-nous vos images, et nous en ferons une vidéo qui marque les esprits.
+      </p>
     </div>
   </section>
 
-  <!-- Book -->
-  <h2>Book</h2>
-  <section class="fade-in">
-    <div class="videos-container">
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/saovOqehmKY"></iframe>
+  <h2 class="fade-in">Book</h2>
+  <section class="book-section fade-in">
+    <div class="video-grid">
+      <div class="video-card fade-in">
         <h3>Showreel de juin 2025</h3>
-        <p>Vidéo horizontale avec musique, lettrage, transitions stylisées, colorimétrie et effets.</p>
+        <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
+        <p>Une vidéo au format horizontal avec musique de fond, lettrage + effet d'apparition et de disparition, transitions stylisées, colorimétrie ainsi que plusieurs effets vidéo et sonores.</p>
       </div>
 
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g"></iframe>
-        <h3>Vidéo de voyage - Novembre 2024</h3>
-        <p>Vidéo verticale retraçant une journée à La Rochelle, musique de fond et transitions nettes.</p>
+      <div class="video-card fade-in">
+        <h3>Vidéo de voyage montée en novembre 2024</h3>
+        <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
+        <p>Une vidéo au format vertical retraçant une journée de balade à La Rochelle avec musique de fond, lettrage et transitions nettes rythmées.</p>
       </div>
 
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw"></iframe>
-        <h3>Edit RP – Août 2025</h3>
-        <p>Vidéo verticale mettant en avant un personnage roleplay avec transitions dynamiques.</p>
+      <div class="video-card fade-in">
+        <h3>Edit d’un personnage roleplay d’août 2025</h3>
+        <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
+        <p>Une vidéo au format vertical mettant en avant un personnage roleplay avec musique de fond et transitions stylisées rythmées.</p>
       </div>
 
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo"></iframe>
-        <h3>Let’s Play tiré d’un live</h3>
-        <p>Vidéo horizontale avec intro/outro et voix-off au début et à la fin.</p>
+      <div class="video-card fade-in">
+        <h3>Un épisode de let’s play tiré d’un live</h3>
+        <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
+        <p>Une vidéo au format horizontal avec une intro et une outro ainsi qu’une voix off en début et fin de vidéo.</p>
       </div>
     </div>
   </section>
 
-  <!-- Tarifs -->
-  <h2>Tarifs</h2>
-  <section class="fade-in">
-    <div class="tarifs">
-      <div class="tarif-card">
+  <h2 class="fade-in">Tarifs</h2>
+  <section class="tarifs fade-in">
+    <div class="tarif-grid">
+      <div class="tarif-card fade-in">
         <h3>📱 TikTok / Shorts (15 à 120s)</h3>
-        <p><strong>Basic – 20 €</strong><br>Découpe, rythme, musique de fond. 1 révision comprise.</p>
-        <p><strong>Standard – 30 €</strong><br>Sound FX, zoom dynamique, transitions stylisées. 2 révisions.</p>
-        <p><strong>Premium – 40 €</strong><br>Texte animé, VFX simples, colorimétrie, sous-titres. 3 révisions.</p>
+        <p>
+          🔹 Basic – 20 €<br>Découpe, rythme, musique de fond.<br>1 révision comprise.<br><br>
+          🔹 Standard – 30 €<br>Sound FX, zoom dynamique, transitions stylisées.<br>2 révisions comprises.<br><br>
+          🔹 Premium – 40 €<br>Texte animé, VFX simples, colorimétrie, sous-titres.<br>3 révisions comprises.
+        </p>
       </div>
 
-      <div class="tarif-card">
+      <div class="tarif-card fade-in">
         <h3>📹 Vidéo de voyage / vlog / YouTube</h3>
-        <p><strong>Basic (2-5 min) – 60 €</strong><br>Montage simple, musique libre. 1 révision.</p>
-        <p><strong>Standard (6-10 min) – 100 €</strong><br>Narration, transitions créatives. 2 révisions.</p>
-        <p><strong>Premium (10-20 min) – 150 €</strong><br>Texte animé, VFX. 3 révisions.</p>
-        <p><strong>Long format (40 min) – 200 €</strong><br>Montage avancé, rythme adapté, colorimétrie. 5 révisions.</p>
+        <p>
+          🔹 Basic (2-5 min) – 60 €<br>Montage simple, effets dynamiques, musique libre.<br>1 révision comprise.<br><br>
+          🔹 Standard (6-10 min) – 100 €<br>Narration, transitions créatives, titrage, sound FX.<br>2 révisions comprises.<br><br>
+          🔹 Premium (10-20 min) – 150 €<br>Image de référence, texte animé, VFX.<br>3 révisions comprises.<br><br>
+          🔹 Long format (40 min) – 200 €<br>Montage avancé pour vidéos longues, rythme adapté, titrage, sound FX, colorimétrie.<br>5 Révisions (7 jours après livraison).<br><br>
+          (Supplément de 10-20 € par tranche de 5 min au-delà de 40 min.)
+        </p>
       </div>
 
-      <div class="tarif-card">
+      <div class="tarif-card fade-in">
         <h3>💍 Vidéo de mariage</h3>
-        <p><strong>Highlight (3-5 min) – 150 € à 250 €</strong><br>Sélection des meilleurs moments. 5 révisions.</p>
-        <p><strong>Film complet (10-30 min) – 300 € à 500 €</strong><br>Texte animé, VFX. Révisions illimitées (7 jours).</p>
+        <p>
+          🔹 Highlight (3-5 min) – 150 € à 250 €<br>Sélection des meilleurs moments, musique adaptée, montage rythmé.<br>5 révisions comprises.<br><br>
+          🔹 Film complet (10-30 min) – 300 € à 500 €<br>Histoire complète du mariage, transitions créatives, texte animé, VFX.<br>Révisions illimitées (7 jours après livraison).
+        </p>
       </div>
 
-      <div class="tarif-card">
+      <div class="tarif-card fade-in">
         <h3>📦 Forfaits créateurs</h3>
-        <p><strong>Pack Starter – 20%</strong><br>3 vidéos Standard/Premium.</p>
-        <p><strong>Pack Creator – 25%</strong><br>3 vidéos Long Format, 1 par semaine.</p>
+        <p>
+          🔹 Pack Starter – 20%<br>3 vidéos au format Standard/Premium.<br>Révisions en fonction du type de pack.<br><br>
+          🔹 Pack Creator – 25%<br>3 vidéos au format Standard/Premium/Long Format (1 par semaine).<br>Révisions en fonction du type de pack.
+        </p>
       </div>
 
-      <div class="tarif-card">
+      <div class="tarif-card fade-in">
         <h3>🔁 Révisions hors forfait</h3>
-        <p>TikTok / Shorts : +10 € / révision</p>
-        <p>YouTube / Vlog / Voyage : +15 € / révision</p>
-        <p>Vidéo de mariage : +15 € / révision</p>
+        <p>
+          TikTok / Shorts : +10 € par révision supplémentaire<br><br>
+          YouTube / Vlog / Voyage : +15 € par révision supplémentaire<br><br>
+          Vidéo de mariage : +15 € par révision supplémentaire
+        </p>
       </div>
 
-      <div class="tarif-card">
+      <div class="tarif-card fade-in">
         <h3>🎉 Offre spéciale</h3>
-        <p>Pour tout nouveau client : -25 % sur le premier projet ✨</p>
+        <p>
+          Pour tout nouveau client :<br>-25 % sur le premier projet ✨
+        </p>
       </div>
     </div>
 
-    <div class="delivery-time">
-      ⏱️ Temps de livraison : chaque projet est unique, la durée de livraison varie de 24h à 1–2 semaines selon le travail à effectuer.
+    <div class="delivery-info fade-in">
+      ⏱️ Temps de livraison : chaque projet est unique, la durée de livraison varie de 24h à 1-2 semaines selon le travail à effectuer.
     </div>
   </section>
 
   <button class="contact-button">Contactez-moi</button>
 
   <script>
-    const fadeElements = document.querySelectorAll('.fade-in');
-    window.addEventListener('scroll', () => {
-      fadeElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          el.classList.add('visible');
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
-    });
-  </script>
+    }, { threshold: 0.2 });
 
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
