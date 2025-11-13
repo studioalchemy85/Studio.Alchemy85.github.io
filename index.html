@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Studio Alchemy</title>
+  <title>Studio Alchemy</title>
   <style>
     :root{
       --accent: #00eaff;
@@ -361,22 +361,32 @@
     </section>
 
     <!-- bouton contact -->
-    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contacte-moi ici</a>
+    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contactez-moi ici</a>
   </main>
 
   <script>
     // fade-in on scroll
-    const faders = Array.from(document.querySelectorAll('.fade-element'));
-    function appearOnScroll(){
-      const triggerBottom = window.innerHeight * 0.85;
-      faders.forEach(el=>{
-        const rect = el.getBoundingClientRect();
-        if(rect.top < triggerBottom) el.classList.add('visible');
-        else el.classList.remove('visible');
-      });
+  const faders = Array.from(document.querySelectorAll('.fade-element'));
+
+function handleFade() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  faders.forEach(el => {
+    const rect = el.getBoundingClientRect();
+
+    // L'élément apparaît quand il entre dans l'écran
+    if (rect.top < triggerBottom && rect.bottom > 0) {
+      el.classList.add('visible');
+    } else {
+      // L'élément disparaît quand tu remontes ou sors du cadre
+      el.classList.remove('visible');
     }
-    window.addEventListener('scroll', appearOnScroll);
-    window.addEventListener('load', appearOnScroll);
+  });
+}
+
+window.addEventListener('scroll', handleFade);
+window.addEventListener('load', handleFade);
+
     window.addEventListener('resize', appearOnScroll);
   </script>
 </body>
