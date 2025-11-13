@@ -67,6 +67,29 @@
       80% { transform: translateX(-10px) rotate(-10deg); }
       100% { transform: translateX(0) rotate(0deg); }
     }
+/* Liens sociaux sous le header */
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.social-links a {
+  display: inline-block;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
 
     /* titres style */
     h1 {
@@ -214,12 +237,22 @@
 <body>
 
   <!-- HEADER -->
-  <header class="fade-element">
-    <div class="logo-container">
-      <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy" class="logo">
-    </div>
-    <h1>Bienvenue chez Studio Alchemy</h1>
-  </header>
+ <header class="fade-element">
+  <div class="logo-container">
+    <img src="Studio-Alchemy1.png" alt="Logo Studio Alchemy" class="logo">
+  </div>
+  <h1>Bienvenue chez Studio Alchemy</h1>
+  
+  <!-- Liens vers YouTube et Instagram -->
+  <div class="social-links fade-element">
+    <a href="https://www.youtube.com/@studioAlchemy85" target="_blank" aria-label="YouTube">
+      <img src="Icône YouTube en couleur (2017).svg.webp" alt="YouTube" class="social-icon">
+    </a>
+    <a href="https://www.instagram.com/studio.alchemy85/" target="_blank" aria-label="Instagram">
+      <img src="Instagram_logo_2022.svg.webp" alt="Instagram" class="social-icon">
+    </a>
+  </div>
+</header>
 
   <main>
     <!-- Présentation (Texte 1) -->
