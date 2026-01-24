@@ -135,33 +135,6 @@ main{
   color:#ddd;
 }
 
-/* TARIFS */
-.tarifs-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.tarif-item{
-  background:var(--dark-panel);
-  padding:16px;
-  border-radius:12px;
-}
-
-.tarif-item h3{
-  color:var(--accent);
-}
-
-.delivery-time{
-  margin:30px auto 0;
-  max-width:1000px;
-  background:var(--dark-panel);
-  padding:14px;
-  border-radius:12px;
-  text-align:center;
-  font-style:italic;
-}
-
 /* CONTACT BUTTON */
 .button{
   position:fixed;
@@ -191,12 +164,10 @@ main{
 /* RESPONSIVE */
 @media(max-width:1100px){
   .video-grid{grid-template-columns:repeat(2,1fr)}
-  .tarifs-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:700px){
-  .video-grid,
-  .tarifs-grid{grid-template-columns:1fr}
+  .video-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -227,61 +198,34 @@ main{
 <h2 class="section-title fade-element">Mes réalisations</h2>
 
 <div class="video-grid-wrapper fade-element">
-<div class="video-grid">
+  <div class="video-grid">
 
-<div class="video-item fade-element">
-<h3>Showreel – Juin 2025</h3>
-<iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
-<p>Montage dynamique avec textes animés, transitions stylisées, effets vidéo et sonores.</p>
+    <div class="video-item fade-element">
+      <h3>Showreel – Juin 2025</h3>
+      <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
+      <p>Montage dynamique avec textes animés, transitions stylisées, effets vidéo et sonores.</p>
+    </div>
+
+    <div class="video-item fade-element">
+      <h3>Vidéo de voyage – Novembre 2024</h3>
+      <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
+      <p>Vidéo verticale rythmée avec musique et transitions nettes.</p>
+    </div>
+
+    <div class="video-item fade-element">
+      <h3>Edit roleplay – Août 2025</h3>
+      <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
+      <p>Mise en avant d’un personnage RP avec transitions stylisées.</p>
+    </div>
+
+    <div class="video-item fade-element">
+      <h3>Let’s Play – extrait live</h3>
+      <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
+      <p>Vidéo YouTube avec intro, outro et voix off.</p>
+    </div>
+
+  </div>
 </div>
-
-<div class="video-item fade-element">
-<h3>Vidéo de voyage – Novembre 2024</h3>
-<iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
-<p>Vidéo verticale rythmée avec musique et transitions nettes.</p>
-</div>
-
-<div class="video-item fade-element">
-<h3>Edit roleplay – Août 2025</h3>
-<iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
-<p>Mise en avant d’un personnage RP avec transitions stylisées.</p>
-</div>
-
-<div class="video-item fade-element">
-<h3>Let’s Play – extrait live</h3>
-<iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
-<p>Vidéo YouTube avec intro, outro et voix off.</p>
-</div>
-
-</div>
-</div>
-
-<h2 class="section-title fade-element">Tarifs</h2>
-
-<section class="tarifs fade-element">
-<div class="tarifs-grid">
-
-<div class="tarif-item">
-<h3>📱 TikTok / Shorts</h3>
-<p>Basic 20 € / Standard 30 € / Premium 40 €</p>
-</div>
-
-<div class="tarif-item">
-<h3>📹 YouTube / Voyage</h3>
-<p>De 60 € à 200 € selon durée</p>
-</div>
-
-<div class="tarif-item">
-<h3>💍 Mariage</h3>
-<p>De 150 € à 500 €</p>
-</div>
-
-</div>
-
-<div class="delivery-time fade-element">
-⏱️ Temps de livraison : chaque projet est unique, la durée varie de 24h à 1–2 semaines.
-</div>
-</section>
 
 <a href="mailto:studio.alchemy85@gmail.com" class="button">Contactez-moi ici</a>
 
@@ -293,7 +237,9 @@ function fade(){
   const t=window.innerHeight*0.85;
   faders.forEach(e=>{
     const r=e.getBoundingClientRect();
-    r.top<t && r.bottom>0 ? e.classList.add('visible') : e.classList.remove('visible');
+    r.top<t && r.bottom>0
+      ? e.classList.add('visible')
+      : e.classList.remove('visible');
   });
 }
 window.addEventListener('scroll',fade);
