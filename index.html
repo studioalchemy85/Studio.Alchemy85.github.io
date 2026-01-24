@@ -1,265 +1,304 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio Alchemy</title>
-  <style>
-    :root{
-      --accent: #00eaff;
-      --dark-panel: rgba(0,0,0,0.65);
-    }
-    html,body{height:100%;}
-    body {
-      font-family: 'Arial', sans-serif;
-      /* image de fond + fallback gradient */
-      background: url('fond.png') no-repeat center center fixed, linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      background-size: cover;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Alchemy</title>
 
-    /* espace bas pour fade-in du temps de livraison */
-    body::after {
-      content: "";
-      display: block;
-      height: 260px;
-    }
-    @media (min-width:1200px){ body::after{ height: 300px; } }
-
-    /* header */
-    header {
-      position: sticky;
-      top: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: rgba(15,15,15,0.72);
-      z-index: 200;
-      padding: 18px 0;
-      backdrop-filter: blur(4px);
-    }
-
-    .logo-container {
-      background-color: #fff;
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-      transform: translateX(-300px) rotate(-720deg);
-      animation: rollInBounce 1.2s forwards;
-    }
-    .logo-container:hover{ transform: scale(1.12); box-shadow: 0 0 22px var(--accent); }
-    .logo{ width:80%; height:80%; object-fit:contain; display:block; }
-
-    @keyframes rollInBounce {
-      0% { transform: translateX(-300px) rotate(-720deg); }
-      60% { transform: translateX(20px) rotate(20deg); }
-      80% { transform: translateX(-10px) rotate(-10deg); }
-      100% { transform: translateX(0) rotate(0deg); }
-    }
-/* Liens sociaux sous le header */
-.social-links {
-  display: flex;
-  gap: 16px;
-  margin-top: 12px;
-  justify-content: center;
+<style>
+:root{
+  --accent:#00eaff;
+  --dark-panel:rgba(0,0,0,0.65);
 }
 
-.social-links a {
-  display: inline-block;
-  transition: transform 0.25s ease, filter 0.25s ease;
+html,body{margin:0;padding:0}
+body{
+  font-family:Arial, sans-serif;
+  background:url('fond.png') no-repeat center center fixed;
+  background-size:cover;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-.social-links a:hover {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 8px var(--accent));
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(15,15,15,.75);
+  padding:20px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  z-index:200;
+  backdrop-filter:blur(5px);
 }
 
-.social-icon {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
+.logo-container{
+  background:#fff;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.5);
 }
 
-    /* titres style */
-    h1 {
-      color: var(--accent);
-      font-size: 2.8rem;
-      margin: 0;
-      text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000,
-        0 0 12px rgba(0,234,255,0.25);
-      -webkit-text-stroke: 1px black;
-    }
+.logo{
+  width:80%;
+  height:80%;
+  object-fit:contain;
+}
 
-    .section-title {
-      width: 100%;
-      text-align: center;
-      font-size: 1.95rem;
-      color: var(--accent);
-      margin: 38px 0 18px 0;
-      text-shadow:
-        -0.8px -0.8px 0 #000,
-        0.8px -0.8px 0 #000,
-        -0.8px 0.8px 0 #000,
-        0.8px 0.8px 0 #000,
-        0 0 10px rgba(0,234,255,0.18);
-      -webkit-text-stroke: 0.8px black;
-    }
+h1{
+  margin:14px 0 8px;
+  font-size:2.6rem;
+  color:var(--accent);
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0 0 12px rgba(0,234,255,.4);
+}
 
-    main{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      padding: 40px 20px;
-    }
+/* SOCIAL */
+.social-links{
+  display:flex;
+  gap:18px;
+  margin-top:10px;
+}
 
-    /* bouton fixe bas droite */
-    a.button {
-      display:block;
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      padding:12px 22px;
-      font-size:1.05rem;
-      color:#0f0f0f;
-      background-color:var(--accent);
-      border-radius:10px;
-      text-decoration:none;
-      transition: transform .18s ease, box-shadow .18s ease;
-      z-index:300;
-      box-shadow:0 8px 18px rgba(0,0,0,0.35);
-    }
-    a.button:hover{ transform:scale(1.04); background:#00b7cc; }
+.social-icon{
+  width:36px;
+  transition:.3s;
+}
 
+.social-icon:hover{
+  transform:scale(1.15);
+  filter:drop-shadow(0 0 8px var(--accent));
+}
 
-      <!-- Videos: wrapper centers the grid -->
-      <div class="video-grid-wrapper fade-element">
-        <div class="video-grid">
-          <div class="video-item fade-element">
-            <h3>Showreel de juin 2025</h3>
-            <iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
-            <p>Une vidéo au format horizontal avec musique de fond, lettrage + effet d'apparition et de disparition, transitions stylisées et rythmées, colorimétrie ainsi que plusieurs effets vidéo et sonore.</p>
-          </div>
+/* MAIN */
+main{
+  padding:40px 20px 120px;
+}
 
-          <div class="video-item fade-element">
-            <h3>Vidéo de voyage - novembre 2024</h3>
-            <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
-            <p>Une vidéo au format vertical retraçant une journée de balade à La Rochelle avec musique de fond, lettrage et transitions nettes et rythmées.</p>
-          </div>
+/* TITRES */
+.section-title{
+  text-align:center;
+  font-size:2rem;
+  margin:50px 0 25px;
+  color:var(--accent);
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0 0 10px rgba(0,234,255,.35);
+}
 
-          <div class="video-item fade-element">
-            <h3>Edit d’un personnage roleplay - août 2025</h3>
-            <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
-            <p>Une vidéo au format vertical mettant en avant un personnage roleplay avec musique de fond et transitions stylisées et rythmées.</p>
-          </div>
+/* VIDEOS */
+.video-grid-wrapper{
+  display:flex;
+  justify-content:center;
+}
 
-          <div class="video-item fade-element">
-            <h3>Un épisode de let’s play tiré d’un live</h3>
-            <iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
-            <p>Une vidéo au format horizontal avec une intro et une outro ainsi qu’une voix off en début et fin de vidéo.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  max-width:1300px;
+  width:100%;
+}
 
-    <!-- TARIFS complet -->
-    <h2 class="section-title fade-element">Tarifs</h2>
-    <section class="tarifs fade-element">
-      <div class="tarifs-grid">
-        <!-- Encadré 1 -->
-        <div class="tarif-item fade-element">
-          <h3>📱 TikTok / Shorts (15 à 120s)</h3>
-          <p>🔹 Basic – 20 €<br>Découpe, rythme, musique de fond. 1 révision comprise.</p>
-          <p>🔹 Standard – 30 €<br>Sound FX, zoom dynamique, transitions stylisées. 2 révisions comprises.</p>
-          <p>🔹 Premium – 40 €<br>Texte animé, VFX simples, colorimétrie, sous-titres. 3 révisions comprises.</p>
-        </div>
+.video-item{
+  background:var(--dark-panel);
+  padding:14px;
+  border-radius:12px;
+  box-shadow:0 10px 28px rgba(0,0,0,.45);
+}
 
-        <!-- Encadré 2 -->
-        <div class="tarif-item fade-element">
-          <h3>📹 Vidéo de voyage / vlog / YouTube</h3>
-          <p>🔹 Basic (2-5 min) – 60 €<br>Montage simple, effets dynamiques, musique libre. 1 révision comprise.</p>
-          <p>🔹 Standard (6-10 min) – 100 €<br>Narration, transitions créatives, titrage, sound FX. 2 révisions comprises.</p>
-          <p>🔹 Premium (10-20 min) – 150 €<br>Image de référence, texte animé, VFX. 3 révisions comprises.</p>
-          <p>🔹 Long format (40 min) – 200 €<br>Montage avancé pour vidéos longues, rythme adapté, titrage, sound FX, colorimétrie. 5 Révisions (7 jours après livraison).<br><small>Supplément de 10-20 € par tranche de 5 min au-delà de 40 min.</small></p>
-        </div>
+.video-item iframe{
+  width:100%;
+  height:220px;
+  border-radius:8px;
+  border:0;
+}
 
-        <!-- Encadré 3 -->
-        <div class="tarif-item fade-element">
-          <h3>💍 Vidéo de mariage</h3>
-          <p>🔹 Highlight (3-5 min) – 150 € à 250 €<br>Sélection des meilleurs moments, musique adaptée, montage rythmé. 5 révisions comprises.</p>
-          <p>🔹 Film complet (10-30 min) – 300 € à 500 €<br>Histoire complète du mariage, transitions créatives, texte animé, VFX. Révisions illimitées (7 jours après livraison).</p>
-        </div>
+.video-item h3{
+  margin:12px 0 6px;
+}
 
-        <!-- Encadré 4 -->
-        <div class="tarif-item fade-element">
-          <h3>📦 Forfaits créateurs</h3>
-          <p>🔹 Pack Starter – 20%<br>3 vidéos au format Standard/Premium. Révisions en fonction du type de pack.</p>
-          <p>🔹 Pack Creator – 25%<br>3 vidéos au format Standard/Premium/Long Format (1 par semaine). Révisions en fonction du type de pack.</p>
-        </div>
+.video-item p{
+  font-size:.95rem;
+  color:#ddd;
+}
 
-        <!-- Encadré 5 -->
-        <div class="tarif-item fade-element">
-          <h3>🔁 Révisions hors forfait</h3>
-          <p>TikTok / Shorts : +10 € par révision supplémentaire</p>
-          <p>YouTube / Vlog / Voyage : +15 € par révision supplémentaire</p>
-          <p>Vidéo de mariage : +15 € par révision supplémentaire</p>
-        </div>
+/* TARIFS */
+.tarifs-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
 
-        <!-- Encadré 6 -->
-        <div class="tarif-item fade-element">
-          <h3>🎉 Offre spéciale</h3>
-          <p>Pour tout nouveau client : -25 % sur le premier projet* ✨</p>
-        </div>
-      </div>
+.tarif-item{
+  background:var(--dark-panel);
+  padding:16px;
+  border-radius:12px;
+}
 
-      <!-- Temps de livraison (séparé) -->
-      <div class="delivery-time fade-element">
-        ⏱️ Temps de livraison : chaque projet est unique, la durée de livraison varie de 24h à 1–2 semaines selon le travail à effectuer.
-      </div>
-    </section>
+.tarif-item h3{
+  color:var(--accent);
+}
 
-    <!-- bouton contact -->
-    <a href="mailto:studio.alchemy85@gmail.com" class="button">Contactez-moi ici</a>
-  </main>
+.delivery-time{
+  margin:30px auto 0;
+  max-width:1000px;
+  background:var(--dark-panel);
+  padding:14px;
+  border-radius:12px;
+  text-align:center;
+  font-style:italic;
+}
 
-  <script>
-    // fade-in on scroll
-  const faders = Array.from(document.querySelectorAll('.fade-element'));
+/* CONTACT BUTTON */
+.button{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:var(--accent);
+  color:#000;
+  padding:14px 22px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 8px 18px rgba(0,0,0,.4);
+}
 
-function handleFade() {
-  const triggerBottom = window.innerHeight * 0.85;
+/* FADE */
+.fade-element{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.8s;
+}
 
-  faders.forEach(el => {
-    const rect = el.getBoundingClientRect();
+.fade-element.visible{
+  opacity:1;
+  transform:translateY(0);
+}
 
-    // L'élément apparaît quand il entre dans l'écran
-    if (rect.top < triggerBottom && rect.bottom > 0) {
-      el.classList.add('visible');
-    } else {
-      // L'élément disparaît quand tu remontes ou sors du cadre
-      el.classList.remove('visible');
-    }
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .video-grid{grid-template-columns:repeat(2,1fr)}
+  .tarifs-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:700px){
+  .video-grid,
+  .tarifs-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header class="fade-element">
+  <div class="logo-container">
+    <img src="Studio-Alchemy1.png" class="logo">
+  </div>
+  <h1>Bienvenue chez Studio Alchemy</h1>
+
+  <div class="social-links fade-element">
+    <a href="https://www.youtube.com/@studioAlchemy85" target="_blank">
+      <img src="YouTube" class="social-icon">
+    </a>
+    <a href="https://www.instagram.com/studio.alchemy85/" target="_blank">
+      <img src="Instagram_logo_2022.svg.webp" class="social-icon">
+    </a>
+    <a href="https://discord.gg/KkzMBpEguK" target="_blank">
+      <img src="discord1.png" class="social-icon">
+    </a>
+  </div>
+</header>
+
+<main>
+
+<h2 class="section-title fade-element">Mes réalisations</h2>
+
+<div class="video-grid-wrapper fade-element">
+<div class="video-grid">
+
+<div class="video-item fade-element">
+<h3>Showreel – Juin 2025</h3>
+<iframe src="https://www.youtube.com/embed/saovOqehmKY" allowfullscreen></iframe>
+<p>Montage dynamique avec textes animés, transitions stylisées, effets vidéo et sonores.</p>
+</div>
+
+<div class="video-item fade-element">
+<h3>Vidéo de voyage – Novembre 2024</h3>
+<iframe src="https://www.youtube.com/embed/cQCzx1V_s6g" allowfullscreen></iframe>
+<p>Vidéo verticale rythmée avec musique et transitions nettes.</p>
+</div>
+
+<div class="video-item fade-element">
+<h3>Edit roleplay – Août 2025</h3>
+<iframe src="https://www.youtube.com/embed/pVeQga7Xlfw" allowfullscreen></iframe>
+<p>Mise en avant d’un personnage RP avec transitions stylisées.</p>
+</div>
+
+<div class="video-item fade-element">
+<h3>Let’s Play – extrait live</h3>
+<iframe src="https://www.youtube.com/embed/hZhC2ZENrZo" allowfullscreen></iframe>
+<p>Vidéo YouTube avec intro, outro et voix off.</p>
+</div>
+
+</div>
+</div>
+
+<h2 class="section-title fade-element">Tarifs</h2>
+
+<section class="tarifs fade-element">
+<div class="tarifs-grid">
+
+<div class="tarif-item">
+<h3>📱 TikTok / Shorts</h3>
+<p>Basic 20 € / Standard 30 € / Premium 40 €</p>
+</div>
+
+<div class="tarif-item">
+<h3>📹 YouTube / Voyage</h3>
+<p>De 60 € à 200 € selon durée</p>
+</div>
+
+<div class="tarif-item">
+<h3>💍 Mariage</h3>
+<p>De 150 € à 500 €</p>
+</div>
+
+</div>
+
+<div class="delivery-time fade-element">
+⏱️ Temps de livraison : chaque projet est unique, la durée varie de 24h à 1–2 semaines.
+</div>
+</section>
+
+<a href="mailto:studio.alchemy85@gmail.com" class="button">Contactez-moi ici</a>
+
+</main>
+
+<script>
+const faders=document.querySelectorAll('.fade-element');
+function fade(){
+  const t=window.innerHeight*0.85;
+  faders.forEach(e=>{
+    const r=e.getBoundingClientRect();
+    r.top<t && r.bottom>0 ? e.classList.add('visible') : e.classList.remove('visible');
   });
 }
+window.addEventListener('scroll',fade);
+window.addEventListener('load',fade);
+</script>
 
-window.addEventListener('scroll', handleFade);
-window.addEventListener('load', handleFade);
-
-    window.addEventListener('resize', appearOnScroll);
-  </script>
 </body>
 </html>
