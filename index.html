@@ -197,6 +197,37 @@ main{
   color: #ccc;
   margin-bottom: 35px;
 }
+/* TEXTE AVEC CONTOUR + VOLUME */
+p,
+h3,
+h4,
+h5 {
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0 3px 6px rgba(0,0,0,.6);
+}
+
+/* Paragraphes un peu plus lisibles */
+p {
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+/* Titres dans les cards vidéo */
+.video-item h5 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* Descriptions vidéos */
+.video-item p {
+  font-size: .95rem;
+  text-align: center;
+}
 
 </style>
 </head>
