@@ -238,6 +238,30 @@ h1 {
 .book-mini-title {
   font-weight: 500;
 }
+/* ===== EFFET SHINE PREMIUM ===== */
+.shine {
+  background: linear-gradient(
+    110deg,
+    #dcdcdc 25%,
+    #ffffff 45%,
+    #dcdcdc 65%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s ease-in-out infinite;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0 4px 8px rgba(0,0,0,.7);
+}
+
+@keyframes shine {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
 
 </style>
 </head>
@@ -248,7 +272,7 @@ h1 {
   <div class="logo-container">
     <img src="Studio-Alchemy1.png" class="logo">
   </div>
-  <h1>Bienvenue chez Studio Alchemy</h1>
+  <h1 class="shine">Bienvenue chez Studio Alchemy</h1>
 
   <div class="social-links fade-element">
     <a href="https://www.youtube.com/@studioAlchemy85" target="_blank">
@@ -265,7 +289,7 @@ h1 {
 
 <main>
 
-<h2 class="section-title fade-element">MON BOOK</h2>
+<h2 class="section-title fade-element shine">MON BOOK</h2>
 
 <section class="book fade-element">
 
