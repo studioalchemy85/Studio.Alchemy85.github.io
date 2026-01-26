@@ -238,30 +238,33 @@ h1 {
 .book-mini-title {
   font-weight: 500;
 }
-/* ===== EFFET SHINE PREMIUM ===== */
+/* ===== EFFET SHINE BLANC PREMIUM ===== */
 .shine {
   background: linear-gradient(
     110deg,
-    #dcdcdc 25%,
-    #ffffff 45%,
-    #dcdcdc 65%
+    #ffffff 30%,
+    #f5f5f5 45%,
+    #ffffff 60%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   animation: shine 4s ease-in-out infinite;
+
   text-shadow:
     -1px -1px 0 #000,
      1px -1px 0 #000,
     -1px  1px 0 #000,
      1px  1px 0 #000,
-     0 4px 8px rgba(0,0,0,.7);
+     0 4px 10px rgba(0,0,0,.75);
 }
 
 @keyframes shine {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
 
 </style>
 </head>
