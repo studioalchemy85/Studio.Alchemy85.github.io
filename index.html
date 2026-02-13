@@ -517,10 +517,14 @@ h1 {
 <script>
 const faders = document.querySelectorAll('.fade-element');
 const header = document.querySelector('header');
+const logoContainer = document.querySelector('.logo-container');
+const title = document.querySelector('header h1');
 
-function fade(){
+function updateEffects(){
+
   const t = window.innerHeight * 0.85;
 
+  // Fade
   faders.forEach(e=>{
     const r = e.getBoundingClientRect();
     r.top < t && r.bottom > 0
@@ -528,19 +532,40 @@ function fade(){
       : e.classList.remove('visible');
   });
 
-  // Shrink header mobile
+  // Header progressive shrink (mobile only)
   if(window.innerWidth <= 700){
-    if(window.scrollY > 80){
-      header.classList.add('shrink');
-    }else{
-      header.classList.remove('shrink');
-    }
+
+    let scroll = window.scrollY;
+    let maxScroll = 150; // distance sur laquelle la réduction s'applique
+    let progress = Math.min(scroll / maxScroll, 1);
+
+    // Valeurs de départ
+    let startPadding = 20;
+    let endPadding = 6;
+
+    let startLogo = 150;
+    let endLogo = 65;
+
+    let startFont = 2.6;
+    let endFont = 1.1;
+
+    // Interpolation progressive
+    let padding = startPadding - (startPadding - endPadding) * progress;
+    let logoSize = startLogo - (startLogo - endLogo) * progress;
+    let fontSize = startFont - (startFont - endFont) * progress;
+
+    header.style.padding = padding + "px 0";
+    logoContainer.style.width = logoSize + "px";
+    logoContainer.style.height = logoSize + "px";
+    title.style.fontSize = fontSize + "rem";
   }
+
 }
 
-window.addEventListener('scroll', fade);
-window.addEventListener('load', fade);
+window.addEventListener('scroll', updateEffects);
+window.addEventListener('load', updateEffects);
 </script>
+
 
 </body>
 </html>
