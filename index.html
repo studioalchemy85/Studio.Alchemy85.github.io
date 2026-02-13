@@ -108,7 +108,8 @@ main{
 
 .video-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(auto-fit, minmax(280px, 300px));
+  justify-content:center;
   gap:20px;
   max-width:1300px;
   width:100%;
@@ -277,7 +278,26 @@ h1 {
   color: #d6d6d6;
   text-decoration: none;
 }
+/* HEADER SHRINK MOBILE */
+@media(max-width:700px){
 
+  header{
+    transition:all .4s ease;
+  }
+
+  header.shrink{
+    padding:10px 0;
+  }
+
+  header.shrink .logo-container{
+    width:90px;
+    height:90px;
+  }
+
+  header.shrink h1{
+    font-size:1.5rem;
+  }
+  
 </style>
 </head>
 
@@ -495,18 +515,31 @@ h1 {
 </main>
 
 <script>
-const faders=document.querySelectorAll('.fade-element');
+const faders = document.querySelectorAll('.fade-element');
+const header = document.querySelector('header');
+
 function fade(){
-  const t=window.innerHeight*0.85;
+  const t = window.innerHeight * 0.85;
+
   faders.forEach(e=>{
-    const r=e.getBoundingClientRect();
-    r.top<t && r.bottom>0
+    const r = e.getBoundingClientRect();
+    r.top < t && r.bottom > 0
       ? e.classList.add('visible')
       : e.classList.remove('visible');
   });
+
+  // Shrink header mobile
+  if(window.innerWidth <= 700){
+    if(window.scrollY > 80){
+      header.classList.add('shrink');
+    }else{
+      header.classList.remove('shrink');
+    }
+  }
 }
-window.addEventListener('scroll',fade);
-window.addEventListener('load',fade);
+
+window.addEventListener('scroll', fade);
+window.addEventListener('load', fade);
 </script>
 
 </body>
