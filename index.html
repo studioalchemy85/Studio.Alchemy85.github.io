@@ -297,6 +297,11 @@ h1 {
   header.shrink h1{
     font-size:1.1rem;
   }
+
+.video-item iframe {
+  transition: opacity .4s ease;
+}
+}
   
 </style>
 </head>
@@ -381,53 +386,82 @@ h1 {
 
   <h4 class="book-mini-title fade-element">Quelques réalisations</h4>
 
-  <div class="video-grid-wrapper fade-element">
-    <div class="video-grid">
+<div class="video-grid-wrapper">
+  <div class="video-grid">
 
-      <div class="video-item fade-element">
-        <h5>Gaming</h5>
-        <iframe src="https://www.youtube.com/embed/Kx841pWPGF0"></iframe>
-        <p>Une vidéo tirée d'un clip avec zoom, suivi de personnage et B-roll temps de montage = moins d'1h.</p>
-      </div>
+ <div class="video-item fade-element"
+     data-videos='[
+       {"id":"Kx841pWPGF0","title":"Gaming","desc":"Clip avec zoom et B-roll. Montage < 1h."}
+       
+     ]'>
 
-      <div class="video-item fade-element">
-        <h5>Voyage</h5>
-        <iframe src="https://www.youtube.com/embed/cQCzx1V_s6g"></iframe>
-        <p>Vidéo courte de souvenirs d'une journée a La rochelle. temps de montage = 2h.</p>
-      </div>
+  <h5></h5>
+  <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
 
-      <div class="video-item fade-element">
-        <h5>Corporate</h5>
-        <iframe src=""></iframe>
-        <p>en recherche de projet.</p>
-      </div>
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"cQCzx1V_s6g","title":"Voyage","desc":"Souvenirs d'une journée à La Rochelle."}
+    
+     ]'>
 
-      <div class="video-item fade-element">
-        <h5>Publicité</h5>
-        <iframe src=""></iframe>
-        <p>en recherche de projet.</p>
-      </div>
-      
-      <div class="video-item fade-element">
-        <h5>Trend</h5>
-        <iframe src=""></iframe>
-        <p>en recherche de projet.</p>
-      </div>
+  <h5></h5>
+  <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
 
-      <div class="video-item fade-element">
-        <h5>Culinaire</h5>
-        <iframe src=""></iframe>
-        <p>en recherche de projet.</p>
-      </div>
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Corporate","desc":"En recherche de projet."}
+     ]'>
 
-      <div class="video-item fade-element">
-        <h5>Edit</h5>
-        <iframe src="https://www.youtube.com/embed/pVeQga7Xlfw"></iframe>
-        <p>Edit stylisé avec effets visuels et rythme soutenu.</p>
-      </div>
+  <h5></h5>
+  <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
 
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Publicité","desc":"En recherche de projet."}
+     ]'>
+
+  <h5></h5>
+  <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Trend","desc":"En recherche de projet."}
+     ]'>
+
+  <h5></h5>
+<iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Culinaire","desc":"En recherche de projet."}
+     ]'>
+
+  <h5></h5>
+<iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"pVeQga7Xlfw","title":"Edit","desc":"Edit stylisé avec effets visuels et rythme soutenu."}
+     ]'>
+
+  <h5></h5>
+ <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
     </div>
-  </div>
+</div>
 
   <!-- ================= LONG FORMAT ================= -->
  <h3 class="book-subtitle fade-element">
@@ -445,7 +479,7 @@ h1 {
       </div>
 
       <div class="video-item fade-element">
-        <h5>>Forfait simple : transition simple + musique (22€/h)</h5>
+        <h5>Forfait simple : transition simple + musique (22€/h)</h5>
         <iframe src=""></iframe>
         <p>comprend le forfait précédent avec des transitions simples et une/des musiques.</p>
       </div>
@@ -464,48 +498,71 @@ h1 {
   <div class="video-grid-wrapper fade-element">
     <div class="video-grid">
 
-      <div class="video-item fade-element">
-        <h5>Gameplay</h5>
-        <iframe src="https://www.youtube.com/embed/33ppHpQicVI"></iframe>
-        <p>let's play de 30min tiré d'un live de 4h avec derush + transitions + sfx + b-roll. temps de montage = presque 5h.</p>
-      </div>
-      
-      <div class="video-item fade-element">
-        <h5>Voyage</h5>
-        <iframe src=""></iframe>
-       <p>en recherche de projet.</p>
-      </div>
-      
-      <div class="video-item fade-element">
-        <h5>Best of</h5><iframe src=""></iframe>
-      <p>en recherche de projet.</p>
-      </div>
-      
-      <div class="video-item fade-element">
-        <h5>Face cam</h5>
-        <iframe src=""></iframe>
-      <p>en recherche de projet.</p>
-      </div>
-      
-      <div class="video-item fade-element">
-        <h5>Vlog</h5>
-        <iframe src=""></iframe>
-      <p>en recherche de projet.</p>
-      </div>
-      
-      <div class="video-item fade-element">
-        <h5>Culinaire</h5>
-        <iframe src=""></iframe>
-      <p>en recherche de projet.</p>
-      </div>
-      <div class="video-item fade-element">
-        <h5>Production</h5>
-        <iframe src=""></iframe>
-      <p>en recherche de projet.</p>
-      </div>
+      <div class="video-item fade-element"
+     data-videos='[
+       {"id":"33ppHpQicVI","title":"Gameplay","desc":"Let's play de 30min issu d'un live."}
+     ]'>
 
+  <h5></h5>
+  <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Voyage","desc":"En recherche de projet."}
+     ]'>
+  <h5></h5>
+  <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Best of","desc":"En recherche de projet."}
+     ]'>
+  <h5></h5>
+  <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Face cam/interview","desc":"En recherche de projet."}
+     ]'>
+  <h5></h5>
+<iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Vlog","desc":"En recherche de projet."}
+     ]'>
+  <h5></h5>
+ <iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Culinaire","desc":"En recherche de projet."}
+     ]'>
+  <h5></h5>
+<iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
+
+<div class="video-item fade-element"
+     data-videos='[
+       {"id":"","title":"Production","desc":"En recherche de projet."}
+     ]'>
+  <h5></h5>
+<iframe allow="autoplay; encrypted-media"></iframe>
+  <p></p>
+</div>
     </div>
-  </div>
+</div>
 
 </section>
 
@@ -564,7 +621,70 @@ function updateEffects(){
 
 window.addEventListener('scroll', updateEffects);
 window.addEventListener('load', updateEffects);
+
+// ================= ROTATION AUTOMATIQUE POUR TOUTES LES CARTES =================
+
+document.querySelectorAll('.video-item').forEach(card => {
+
+  const data = card.getAttribute('data-videos');
+  if(!data) return;
+
+  const videos = JSON.parse(data);
+  if(videos.length === 0) return;
+
+  const iframe = card.querySelector('iframe');
+ const cardTitle = card.querySelector('h5');
+  const desc = card.querySelector('p');
+
+  let current = 0;
+  let interval;
+
+  function loadVideo(index){
+    const v = videos[index];
+
+    cardTitle.textContent = v.title;
+    desc.textContent = v.desc;
+
+if(v.id){
+  iframe.style.display = "block";
+  
+  // FADE IN / FADE OUT
+  iframe.style.opacity = 0;
+
+  setTimeout(()=>{
+    iframe.src = "https://www.youtube.com/embed/" + v.id + "?enablejsapi=1&rel=0";
+    iframe.style.opacity = 1;
+  },200);
+
+}else{
+  iframe.removeAttribute("src");
+  iframe.style.display = "none";
+}
+
+  }
+
+  function startRotation(){
+    if(videos.length <= 1) return;
+
+    interval = setInterval(() => {
+      current = (current + 1) % videos.length;
+      loadVideo(current);
+    }, 6000);
+  }
+
+  function stopRotation(){
+    clearInterval(interval);
+  }
+
+  iframe.addEventListener("mouseenter", stopRotation);
+  iframe.addEventListener("mouseleave", startRotation);
+
+  loadVideo(0);
+  startRotation();
+});
+
 </script>
+
 
 
 </body>
